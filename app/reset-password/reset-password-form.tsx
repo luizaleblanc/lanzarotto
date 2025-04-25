@@ -1,18 +1,19 @@
 "use client"
 
 import { useState } from "react"
-import { Eye, EyeOff, User, Lock } from "lucide-react"
+import { Eye, EyeOff, Lock, User } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import AnimatedPage from "./components/animated-page"
+import AnimatedPage from "../components/animated-page"
 
-export default function LoginPreview() {
-  const [hidePassword, setHidePassword] = useState(true)
+export default function ResetPasswordForm() {
+  const [hideNewPassword, setHideNewPassword] = useState(true)
+  const [hideConfirmPassword, setHideConfirmPassword] = useState(true)
 
   return (
     <AnimatedPage>
       <div className="flex min-h-screen w-full flex-col lg:flex-row">
-        {/* Login Form Section */}
+        {/* Form Section */}
         <div className="flex flex-1 flex-col items-center justify-center px-4 py-8 md:px-8 lg:px-16">
           <div className="w-full max-w-[400px]">
             {/* Circular user photo placeholder */}
@@ -23,61 +24,77 @@ export default function LoginPreview() {
               </div>
             </div>
 
-            <h1 className="text-2xl font-semibold text-center mb-1">Seja bem vindo(a)!</h1>
+            <h1 className="text-2xl font-semibold text-center mb-1">Esqueceu sua senha?</h1>
             <p className="text-sm text-gray-600 text-center mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
+              Para cadastrar sua nova senha, insira o token que você recebeu por email.
             </p>
 
             <div className="space-y-4">
               <div className="space-y-1">
-                <label className="text-sm text-[#B8860B]">E-mail</label>
+                <label className="text-sm text-[#B8860B]">Token</label>
                 <div className="relative">
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#B8860B]">
-                    <User size={16} />
-                  </div>
                   <input
-                    type="email"
-                    placeholder="mail@email.com"
-                    className="w-full rounded bg-gray-50 border border-gray-200 py-2.5 pl-10 pr-3 text-sm outline-none"
+                    type="text"
+                    placeholder="0000"
+                    className="w-full rounded bg-gray-50 border border-gray-200 py-2.5 px-3 text-sm outline-none"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm text-[#B8860B]">Senha</label>
+                <label className="text-sm text-[#B8860B]">Nova Senha</label>
                 <div className="relative">
                   <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#B8860B]">
                     <Lock size={16} />
                   </div>
                   <input
-                    type={hidePassword ? "password" : "text"}
+                    type={hideNewPassword ? "password" : "text"}
                     placeholder="••••••••"
                     className="w-full rounded bg-gray-50 border border-gray-200 py-2.5 pl-10 pr-10 text-sm outline-none"
                   />
                   <button
                     type="button"
-                    onClick={() => setHidePassword(!hidePassword)}
+                    onClick={() => setHideNewPassword(!hideNewPassword)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
                   >
-                    {hidePassword ? <Eye size={16} /> : <EyeOff size={16} />}
+                    {hideNewPassword ? <Eye size={16} /> : <EyeOff size={16} />}
                   </button>
                 </div>
               </div>
 
-              <div className="text-sm">
-                Esqueceu a senha?{" "}
-                <Link href="/forgot-password" className="font-medium">
-                  Clique aqui!
-                </Link>
+              <div className="space-y-1">
+                <label className="text-sm text-[#B8860B]">Confirmar senha</label>
+                <div className="relative">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#B8860B]">
+                    <Lock size={16} />
+                  </div>
+                  <input
+                    type={hideConfirmPassword ? "password" : "text"}
+                    placeholder="••••••••"
+                    className="w-full rounded bg-gray-50 border border-gray-200 py-2.5 pl-10 pr-10 text-sm outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setHideConfirmPassword(!hideConfirmPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+                  >
+                    {hideConfirmPassword ? <Eye size={16} /> : <EyeOff size={16} />}
+                  </button>
+                </div>
               </div>
 
               <button
                 type="button"
                 className="w-full bg-[#B8860B] text-white py-2.5 rounded font-medium hover:bg-[#a67719] transition-colors"
               >
-                ENTRAR
+                CONFIRMAR
               </button>
+
+              <div className="text-sm text-center">
+                <Link href="/" className="text-gray-700 hover:underline">
+                  Voltar para o login
+                </Link>
+              </div>
             </div>
 
             <div className="flex flex-col md:flex-row justify-between text-xs mt-auto pt-16 gap-4 md:gap-0">
@@ -94,14 +111,14 @@ export default function LoginPreview() {
           </div>
         </div>
 
-        {/* Image Section - 720x1023 with guitar logo */}
+        {/* Image Section - 720x1023 with wave logo */}
         <div className="hidden lg:block relative" style={{ width: "720px", maxHeight: "100vh" }}>
           <div className="w-full h-full bg-white flex items-center justify-center" style={{ aspectRatio: "720/1023" }}>
-            <div className="relative w-2/5 h-2/5 flex items-center justify-center">
+            <div className="relative w-3/5 h-2/5 flex items-center justify-center">
               <Image
-                src="/images/guitar-logo.png"
-                alt="Logotipo de guitarra"
-                width={200}
+                src="/images/wave-logo.png"
+                alt="Logo de onda dourada"
+                width={400}
                 height={200}
                 className="object-contain"
                 priority

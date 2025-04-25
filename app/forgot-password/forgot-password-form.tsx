@@ -42,6 +42,7 @@ export default function ForgotPasswordForm() {
               <button
                 type="button"
                 className="w-full bg-[#B8860B] text-white py-2.5 rounded font-medium hover:bg-[#a67719] transition-colors"
+                onClick={() => (window.location.href = "/reset-password")}
               >
                 CONTINUAR
               </button>
