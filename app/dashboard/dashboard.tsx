@@ -99,9 +99,13 @@ export default function Dashboard() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/musicians"
                   className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    router.push("/musicians")
+                    setMobileMenuOpen(false)
+                  }}
                 >
                   <Mic2 size={20} />
                   MÚSICOS
@@ -162,7 +166,7 @@ export default function Dashboard() {
                 <p className="text-sm text-gray-500">Usuários</p>
               </div>
               <div className="flex flex-col items-end">
-                <span className="text-emerald-500 flex items-center text-xs md:text-sm">
+                <span className="text-emerald-500 flex items-center text-xs md:text-sm gap-1">
                   <TrendingUp size={16} />
                   50,2%
                 </span>
@@ -179,7 +183,7 @@ export default function Dashboard() {
                 <p className="text-sm text-gray-500">Músicos</p>
               </div>
               <div className="flex flex-col items-end">
-                <span className="text-red-500 flex items-center text-xs md:text-sm">
+                <span className="text-red-500 flex items-center text-xs md:text-sm gap-1">
                   <TrendingDown size={16} />
                   50,2%
                 </span>
@@ -196,7 +200,7 @@ export default function Dashboard() {
                 <p className="text-sm text-gray-500">Total em caixa</p>
               </div>
               <div className="flex flex-col items-end">
-                <span className="text-red-500 flex items-center text-xs md:text-sm">
+                <span className="text-red-500 flex items-center text-xs md:text-sm gap-1">
                   <TrendingDown size={16} />
                   50,2%
                 </span>
@@ -209,12 +213,12 @@ export default function Dashboard() {
 
           {/* Charts and Lists */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-            {/* Chart - Apenas a imagem sem título e sem sombra */}
+            {/* Chart - Imagem com qualidade maximizada */}
             <div className="lg:col-span-2">
               <div className="relative w-full">
                 <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Grupo%2034771-2QW4ifjfNRNUJXtG07RycP6R8eeZxg.png"
-                  alt="Gráfico"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202025-04-26%20185529-LGI6nuWpvhR8rm9vYj8kFgaoY3yl6G.png"
+                  alt="Gráfico Usuários x Financeiro"
                   className="w-full h-auto rounded-lg"
                 />
               </div>
