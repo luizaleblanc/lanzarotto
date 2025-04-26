@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+
+import { useRouter } from "next/navigation"
 import {
   Monitor,
   Users,
@@ -16,35 +18,10 @@ import {
   X,
 } from "lucide-react"
 
-// Dados fixos para o gráfico
-const chartData = [
-  { month: "Jan", year: "2019", users: 42500, financial: 58000 },
-  { month: "Fev", year: "2019", users: 45000, financial: 62000 },
-  { month: "Mar", year: "2019", users: 47500, financial: 59000 },
-  { month: "Abr", year: "2019", users: 43000, financial: 61000 },
-  { month: "Mai", year: "2019", users: 48000, financial: 63000 },
-  { month: "Jun", year: "2019", users: 51000, financial: 67000 },
-  { month: "Jul", year: "2019", users: 49000, financial: 64000 },
-  { month: "Ago", year: "2019", users: 52000, financial: 68000 },
-  { month: "Set", year: "2019", users: 54000, financial: 70000 },
-  { month: "Out", year: "2019", users: 56000, financial: 72000 },
-  { month: "Nov", year: "2019", users: 58000, financial: 74000 },
-  { month: "Dez", year: "2019", users: 60000, financial: 76000 },
-]
-
-// Valor máximo para calcular a altura relativa das barras
-const maxValue = Math.max(...chartData.map((item) => Math.max(item.users, item.financial)))
-
 export default function Dashboard() {
   const [dateRange, setDateRange] = useState("1 de Mar de 2023 a 9 de Mar de 2023")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [hoveredBar, setHoveredBar] = useState<{
-    index: number
-    type: "users" | "financial" | null
-    value: number
-    x: number
-    y: number
-  } | null>(null)
+  const router = useRouter()
 
   return (
     <div className="flex flex-col h-screen">
@@ -94,9 +71,13 @@ export default function Dashboard() {
             <ul>
               <li>
                 <a
-                  href="#"
+                  href="/dashboard"
                   className="flex items-center gap-3 py-4 px-6 bg-[#B8860B] text-white font-medium hover:bg-[#a67719] transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    router.push("/dashboard")
+                    setMobileMenuOpen(false)
+                  }}
                 >
                   <Monitor size={20} />
                   DASHBOARD
@@ -104,9 +85,13 @@ export default function Dashboard() {
               </li>
               <li>
                 <a
-                  href="#"
-                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-gray-200 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  href="/users"
+                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    router.push("/users")
+                    setMobileMenuOpen(false)
+                  }}
                 >
                   <Users size={20} />
                   USUÁRIOS
@@ -115,7 +100,7 @@ export default function Dashboard() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-gray-200 transition-colors"
+                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Mic2 size={20} />
@@ -125,7 +110,7 @@ export default function Dashboard() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-gray-200 transition-colors"
+                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <FileText size={20} />
@@ -135,7 +120,7 @@ export default function Dashboard() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-gray-200 transition-colors"
+                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <BarChart3 size={20} />
@@ -145,7 +130,7 @@ export default function Dashboard() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-gray-200 transition-colors"
+                  className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <KeyRound size={20} />
@@ -181,8 +166,8 @@ export default function Dashboard() {
                   <TrendingUp size={16} />
                   50,2%
                 </span>
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#B8860B] rounded-full flex items-center justify-center mt-2">
-                  <Users size={16} className="text-white md:size-20" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#B8860B] rounded-full flex items-center justify-center mt-1">
+                  <Users size={16} className="text-white" />
                 </div>
               </div>
             </div>
@@ -198,8 +183,8 @@ export default function Dashboard() {
                   <TrendingDown size={16} />
                   50,2%
                 </span>
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-black rounded-full flex items-center justify-center mt-2">
-                  <Mic2 size={16} className="text-white md:size-20" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-black rounded-full flex items-center justify-center mt-1">
+                  <Mic2 size={16} className="text-white" />
                 </div>
               </div>
             </div>
@@ -215,8 +200,8 @@ export default function Dashboard() {
                   <TrendingDown size={16} />
                   50,2%
                 </span>
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-teal-500 rounded-full flex items-center justify-center mt-2">
-                  <BarChart3 size={16} className="text-white md:size-20" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-teal-500 rounded-full flex items-center justify-center mt-1">
+                  <BarChart3 size={16} className="text-white" />
                 </div>
               </div>
             </div>
@@ -224,122 +209,14 @@ export default function Dashboard() {
 
           {/* Charts and Lists */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-            {/* Chart */}
-            <div className="bg-white rounded-lg shadow p-4 md:p-6 lg:col-span-2">
-              <div className="flex justify-between items-center mb-4 md:mb-6">
-                <h3 className="text-base md:text-lg font-medium text-gray-600">Usuários x Financeiro</h3>
-              </div>
-
-              <div className="relative pt-6 pb-10">
-                {/* Valor no eixo Y */}
-                <div className="absolute -top-1 left-2 text-xs text-gray-500 bg-white px-2 py-0.5 rounded-full border border-gray-200 z-10">
-                  00000
-                </div>
-
-                {/* Container do gráfico com linhas horizontais */}
-                <div className="relative h-64 w-full">
-                  {/* Linhas horizontais de grade */}
-                  <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
-                    {[...Array(5)].map((_, i) => (
-                      <div key={i} className="w-full border-t border-gray-200"></div>
-                    ))}
-                  </div>
-
-                  {/* Barras do gráfico */}
-                  <div className="absolute inset-0 flex justify-between items-end">
-                    {chartData.map((data, index) => {
-                      const userHeight = (data.users / maxValue) * 100
-                      const financialHeight = (data.financial / maxValue) * 100
-
-                      return (
-                        <div key={index} className="flex flex-col items-center">
-                          <div className="flex space-x-1 h-full items-end">
-                            {/* Barra de Usuários */}
-                            <div
-                              className="w-3 md:w-4 bg-[#B8860B] cursor-pointer transition-all hover:opacity-80"
-                              style={{ height: `${userHeight}%` }}
-                              onMouseEnter={(e) => {
-                                const rect = e.currentTarget.getBoundingClientRect()
-                                setHoveredBar({
-                                  index,
-                                  type: "users",
-                                  value: data.users,
-                                  x: rect.left + window.scrollX,
-                                  y: rect.top + window.scrollY,
-                                })
-                              }}
-                              onMouseLeave={() => setHoveredBar(null)}
-                            ></div>
-
-                            {/* Barra de Financeiro */}
-                            <div
-                              className="w-3 md:w-4 bg-black cursor-pointer transition-all hover:opacity-80"
-                              style={{ height: `${financialHeight}%` }}
-                              onMouseEnter={(e) => {
-                                const rect = e.currentTarget.getBoundingClientRect()
-                                setHoveredBar({
-                                  index,
-                                  type: "financial",
-                                  value: data.financial,
-                                  x: rect.left + window.scrollX,
-                                  y: rect.top + window.scrollY,
-                                })
-                              }}
-                              onMouseLeave={() => setHoveredBar(null)}
-                            ></div>
-                          </div>
-                          <div className="text-[10px] md:text-xs text-gray-500 mt-2 text-center">
-                            <div>{data.month}</div>
-                            <div className="text-[8px] md:text-[10px]">{data.year}</div>
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-
-                  {/* Tooltip */}
-                  {hoveredBar && (
-                    <div
-                      className="absolute bg-white shadow-lg rounded-md px-3 py-2 text-xs z-50 border border-gray-200 pointer-events-none"
-                      style={{
-                        left: `${hoveredBar.x - 50}px`,
-                        top: `${hoveredBar.y - 60}px`,
-                        transform: "translateX(-50%)",
-                      }}
-                    >
-                      <div className="font-medium">
-                        {chartData[hoveredBar.index].month}/{chartData[hoveredBar.index].year}
-                      </div>
-                      <div className="flex items-center mt-1">
-                        <div
-                          className="w-2 h-2 mr-1"
-                          style={{
-                            backgroundColor: hoveredBar.type === "users" ? "#B8860B" : "black",
-                          }}
-                        ></div>
-                        <span>
-                          {hoveredBar.type === "users" ? "Novos usuários: " : "Financeiro: "}
-                          {hoveredBar.type === "financial"
-                            ? `R$ ${hoveredBar.value.toLocaleString()}`
-                            : hoveredBar.value.toLocaleString()}
-                        </span>
-                      </div>
-                      <div className="absolute w-2 h-2 bg-white border-b border-r border-gray-200 transform rotate-45 left-1/2 -bottom-1 -ml-1"></div>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Legenda */}
-              <div className="flex items-center justify-start mt-4 space-x-8 px-4">
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-[#B8860B] mr-2"></div>
-                  <span className="text-xs md:text-sm text-gray-500">Novos usuários</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 bg-black mr-2"></div>
-                  <span className="text-xs md:text-sm text-gray-500">Financeiro</span>
-                </div>
+            {/* Chart - Apenas a imagem sem título e sem sombra */}
+            <div className="lg:col-span-2">
+              <div className="relative w-full">
+                <img
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Grupo%2034771-2QW4ifjfNRNUJXtG07RycP6R8eeZxg.png"
+                  alt="Gráfico"
+                  className="w-full h-auto rounded-lg"
+                />
               </div>
             </div>
 
