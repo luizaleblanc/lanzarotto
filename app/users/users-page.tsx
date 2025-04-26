@@ -151,9 +151,13 @@ export default function UsersPage() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/musicians"
                   className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    router.push("/musicians")
+                    setMobileMenuOpen(false)
+                  }}
                 >
                   <Mic2 size={20} />
                   MÚSICOS

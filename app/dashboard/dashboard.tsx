@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 import {
   Monitor,
@@ -213,14 +213,21 @@ export default function Dashboard() {
 
           {/* Charts and Lists */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-            {/* Chart - Imagem com qualidade maximizada */}
+            {/* Chart - Usando o componente Image do Next.js */}
             <div className="lg:col-span-2">
-              <div className="relative w-full">
-                <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202025-04-26%20185529-LGI6nuWpvhR8rm9vYj8kFgaoY3yl6G.png"
-                  alt="Gráfico Usuários x Financeiro"
-                  className="w-full h-auto rounded-lg"
-                />
+              <div className="relative w-full bg-white rounded-lg shadow overflow-hidden">
+                <div className="p-4 md:p-6">
+                  <h3 className="text-lg font-medium text-gray-700 mb-4">Usuários x Financeiro</h3>
+                  <div className="relative w-full" style={{ height: "300px" }}>
+                    <Image
+                      src="/images/usuarios-financeiro-chart.png"
+                      alt="Gráfico Usuários x Financeiro"
+                      fill
+                      style={{ objectFit: "contain" }}
+                      priority
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
