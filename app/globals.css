@@ -2,20 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
-html,
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+  color: rgb(var(--foreground-rgb));
+  background: white;
+  font-family: var(--font-poppins), sans-serif;
 }
 
+/* Responsividade para dispositivos móveis */
 @media (max-width: 640px) {
   html {
     font-size: 14px;

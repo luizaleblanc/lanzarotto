@@ -1,5 +1,5 @@
-import LoginPreview from "./login-preview"
+import LoginPreview from "@/login-preview"
 
-export default function Page() {
+export default function Home() {
   return <LoginPreview />
 }
