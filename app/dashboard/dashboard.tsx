@@ -213,21 +213,16 @@ export default function Dashboard() {
 
           {/* Charts and Lists */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-            {/* Chart - Usando o componente Image do Next.js */}
+            {/* Chart - Apenas a imagem sem card */}
             <div className="lg:col-span-2">
-              <div className="relative w-full bg-white rounded-lg shadow overflow-hidden">
-                <div className="p-4 md:p-6">
-                  <h3 className="text-lg font-medium text-gray-700 mb-4">Usuários x Financeiro</h3>
-                  <div className="relative w-full" style={{ height: "300px" }}>
-                    <Image
-                      src="/images/usuarios-financeiro-chart.png"
-                      alt="Gráfico Usuários x Financeiro"
-                      fill
-                      style={{ objectFit: "contain" }}
-                      priority
-                    />
-                  </div>
-                </div>
+              <div className="relative w-full" style={{ height: "400px" }}>
+                <Image
+                  src="/images/usuarios-financeiro-chart.png"
+                  alt="Gráfico Usuários x Financeiro"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  priority
+                />
               </div>
             </div>
 
