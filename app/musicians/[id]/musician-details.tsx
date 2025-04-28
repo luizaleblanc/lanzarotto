@@ -16,6 +16,8 @@ import {
   MoreVertical,
   ChevronLeft,
   ChevronRight,
+  Star,
+  StarHalf,
 } from "lucide-react"
 
 // Dados de exemplo para o músico
@@ -122,6 +124,31 @@ const requestsData = [
   },
 ]
 
+// Dados de exemplo para as avaliações
+const reviewsData = [
+  {
+    id: 1,
+    rating: 4,
+    date: "1 Semana atrás",
+    text: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
+    user: "Usuário",
+  },
+  {
+    id: 2,
+    rating: 5,
+    date: "1 Semana atrás",
+    text: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
+    user: "Usuário",
+  },
+  {
+    id: 3,
+    rating: 4,
+    date: "1 Semana atrás",
+    text: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
+    user: "Usuário",
+  },
+]
+
 export default function MusicianDetails({ musicianId }: { musicianId: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isActive, setIsActive] = useState(true)
@@ -131,6 +158,28 @@ export default function MusicianDetails({ musicianId }: { musicianId: string }) 
   const handleNavigation = (path: string) => {
     router.push(path)
     setMobileMenuOpen(false)
+  }
+
+  // Componente para renderizar as estrelas de avaliação
+  const RatingStars = ({ rating }: { rating: number }) => {
+    const stars = []
+    const fullStars = Math.floor(rating)
+    const hasHalfStar = rating % 1 !== 0
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<Star key={`star-${i}`} className="fill-[#B8860B] text-[#B8860B]" size={16} />)
+    }
+
+    if (hasHalfStar) {
+      stars.push(<StarHalf key="half-star" className="fill-[#B8860B] text-[#B8860B]" size={16} />)
+    }
+
+    const emptyStars = 5 - stars.length
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<Star key={`empty-star-${i}`} className="text-gray-300" size={16} />)
+    }
+
+    return <div className="flex">{stars}</div>
   }
 
   return (
@@ -295,20 +344,20 @@ export default function MusicianDetails({ musicianId }: { musicianId: string }) 
             <div className="mb-6">
               <div className="flex border-b border-gray-200">
                 <button
-                  className={`py-2 px-4 font-medium text-sm ${
+                  className={`py-2 px-4 text-lg font-bold font-montserrat transition-colors ${
                     activeTab === "solicitacoes"
                       ? "border-b-2 border-[#B8860B] text-[#B8860B]"
-                      : "text-gray-500 hover:text-gray-700"
+                      : "text-gray-500 hover:text-[#B8860B]"
                   }`}
                   onClick={() => setActiveTab("solicitacoes")}
                 >
                   Solicitações
                 </button>
                 <button
-                  className={`py-2 px-4 font-medium text-sm ${
+                  className={`py-2 px-4 text-lg font-bold font-montserrat transition-colors ${
                     activeTab === "avaliacao"
                       ? "border-b-2 border-[#B8860B] text-[#B8860B]"
-                      : "text-gray-500 hover:text-gray-700"
+                      : "text-gray-500 hover:text-[#B8860B]"
                   }`}
                   onClick={() => setActiveTab("avaliacao")}
                 >
@@ -317,104 +366,149 @@ export default function MusicianDetails({ musicianId }: { musicianId: string }) 
               </div>
             </div>
 
-            {/* Filter Controls */}
-            <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-4">
-              <div className="relative">
-                <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                  <option>Data</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-              </div>
-              <div className="relative">
-                <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                  <option>Tipo</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-              </div>
-              <div className="relative">
-                <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                  <option>Usuário</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-              </div>
-              <div className="relative">
-                <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                  <option>UF</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-              </div>
-              <div className="relative">
-                <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                  <option>Cidade</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-              </div>
-              <div className="relative">
-                <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                  <option>Valor</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-              </div>
-              <div className="relative md:col-start-6 md:col-end-7">
-                <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                  <option>Status</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-              </div>
-            </div>
+            {/* Solicitações Tab Content */}
+            {activeTab === "solicitacoes" && (
+              <>
+                {/* Filter Controls */}
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-4">
+                  <div className="relative">
+                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
+                      <option>Data</option>
+                    </select>
+                    <ChevronDown
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      size={18}
+                    />
+                  </div>
+                  <div className="relative">
+                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
+                      <option>Tipo</option>
+                    </select>
+                    <ChevronDown
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      size={18}
+                    />
+                  </div>
+                  <div className="relative">
+                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
+                      <option>Usuário</option>
+                    </select>
+                    <ChevronDown
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      size={18}
+                    />
+                  </div>
+                  <div className="relative">
+                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
+                      <option>UF</option>
+                    </select>
+                    <ChevronDown
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      size={18}
+                    />
+                  </div>
+                  <div className="relative">
+                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
+                      <option>Cidade</option>
+                    </select>
+                    <ChevronDown
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      size={18}
+                    />
+                  </div>
+                  <div className="relative">
+                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
+                      <option>Valor</option>
+                    </select>
+                    <ChevronDown
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      size={18}
+                    />
+                  </div>
+                  <div className="relative md:col-start-6 md:col-end-7">
+                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
+                      <option>Status</option>
+                    </select>
+                    <ChevronDown
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      size={18}
+                    />
+                  </div>
+                </div>
 
-            {/* Requests Table */}
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[800px] border-collapse">
-                <tbody>
-                  {requestsData.map((request, index) => (
-                    <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">{request.date}</td>
-                      <td className="py-3 px-4 text-sm">{request.type}</td>
-                      <td className="py-3 px-4 text-sm">{request.user}</td>
-                      <td className="py-3 px-4 text-sm">{request.uf}</td>
-                      <td className="py-3 px-4 text-sm">{request.city}</td>
-                      <td className="py-3 px-4 text-sm">{request.value}</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span
-                          className={`px-4 py-1 rounded-full text-xs ${
-                            request.status === "Ativa" ? "bg-[#C5D69D] text-gray-800" : "bg-gray-200 text-gray-800"
-                          }`}
-                        >
-                          {request.status}
-                        </span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                {/* Requests Table */}
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[800px] border-collapse">
+                    <tbody>
+                      {requestsData.map((request, index) => (
+                        <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                          <td className="py-3 px-4 text-sm">{request.date}</td>
+                          <td className="py-3 px-4 text-sm">{request.type}</td>
+                          <td className="py-3 px-4 text-sm">{request.user}</td>
+                          <td className="py-3 px-4 text-sm">{request.uf}</td>
+                          <td className="py-3 px-4 text-sm">{request.city}</td>
+                          <td className="py-3 px-4 text-sm">{request.value}</td>
+                          <td className="py-3 px-4 text-sm">
+                            <span
+                              className={`px-4 py-1 rounded-full text-xs ${
+                                request.status === "Ativa" ? "bg-[#C5D69D] text-gray-800" : "bg-gray-200 text-gray-800"
+                              }`}
+                            >
+                              {request.status}
+                            </span>
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <button className="text-gray-500 hover:text-gray-700">
+                              <MoreVertical size={18} />
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
 
-            {/* Pagination */}
-            <div className="flex justify-end items-center mt-6">
-              <div className="flex items-center space-x-2">
-                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
-                  <ChevronLeft size={16} />
-                </button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-full bg-[#B8860B] text-white">
-                  1
-                </button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
-                  2
-                </button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
-                  3
-                </button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
-                  <ChevronRight size={16} />
-                </button>
+                {/* Pagination */}
+                <div className="flex justify-end items-center mt-6">
+                  <div className="flex items-center space-x-2">
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
+                      <ChevronLeft size={16} />
+                    </button>
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full bg-[#B8860B] text-white">
+                      1
+                    </button>
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
+                      2
+                    </button>
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
+                      3
+                    </button>
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
+                      <ChevronRight size={16} />
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Avaliação Tab Content */}
+            {activeTab === "avaliacao" && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {reviewsData.map((review) => (
+                  <div key={review.id} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <div className="flex justify-between items-start mb-3">
+                      <RatingStars rating={review.rating} />
+                      <span className="text-xs text-gray-500">{review.date}</span>
+                    </div>
+                    <p className="text-sm text-gray-700 mb-4">{review.text}</p>
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
+                      <span className="text-sm font-medium">{review.user}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
+            )}
           </main>
         </div>
       </div>

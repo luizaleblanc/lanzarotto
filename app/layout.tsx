@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
+import { Poppins, Montserrat } from "next/font/google"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -8,6 +8,13 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
   variable: "--font-poppins",
+})
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-montserrat",
 })
 
 export const metadata: Metadata = {
@@ -23,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+      <body className={`${poppins.className} ${montserrat.variable} antialiased`}>{children}</body>
     </html>
   )
 }
