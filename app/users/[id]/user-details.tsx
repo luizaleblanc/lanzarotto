@@ -31,6 +31,7 @@ const userData = {
 // Dados de exemplo para as solicitações do usuário
 const requestsData = [
   {
+    id: "00001",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "--------",
@@ -40,6 +41,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00002",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
@@ -49,6 +51,7 @@ const requestsData = [
     status: "Encerrada",
   },
   {
+    id: "00003",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "--------",
@@ -58,6 +61,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00004",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
@@ -67,6 +71,7 @@ const requestsData = [
     status: "Encerrada",
   },
   {
+    id: "00005",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "--------",
@@ -76,6 +81,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00006",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
@@ -85,6 +91,7 @@ const requestsData = [
     status: "Encerrada",
   },
   {
+    id: "00007",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "--------",
@@ -94,6 +101,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00008",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
@@ -103,6 +111,7 @@ const requestsData = [
     status: "Encerrada",
   },
   {
+    id: "00009",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "--------",
@@ -112,6 +121,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00010",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
@@ -209,7 +219,7 @@ export default function UserDetails({ userId }: { userId: string }) {
                 <li>
                   <button
                     className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors w-full text-left"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => handleNavigation("/requests")}
                   >
                     <FileText size={20} />
                     SOLICITAÇÕES
@@ -294,256 +304,88 @@ export default function UserDetails({ userId }: { userId: string }) {
             <div>
               <h2 className="text-xl font-bold mb-4">Solicitações</h2>
 
-              {/* Filter Controls */}
-              <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-4">
-                <div className="relative">
-                  <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                    <option>Data</option>
-                  </select>
-                  <ChevronDown
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={18}
-                  />
-                </div>
-                <div className="relative">
-                  <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                    <option>Tipo</option>
-                  </select>
-                  <ChevronDown
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={18}
-                  />
-                </div>
-                <div className="relative">
-                  <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                    <option>Profissional</option>
-                  </select>
-                  <ChevronDown
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={18}
-                  />
-                </div>
-                <div className="relative">
-                  <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                    <option>UF</option>
-                  </select>
-                  <ChevronDown
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={18}
-                  />
-                </div>
-                <div className="relative">
-                  <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                    <option>Cidade</option>
-                  </select>
-                  <ChevronDown
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={18}
-                  />
-                </div>
-                <div className="relative">
-                  <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                    <option>Valor</option>
-                  </select>
-                  <ChevronDown
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={18}
-                  />
-                </div>
-                <div className="relative md:col-start-6 md:col-end-7">
-                  <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                    <option>Status</option>
-                  </select>
-                  <ChevronDown
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={18}
-                  />
-                </div>
-              </div>
-
               {/* Requests Table */}
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto bg-[#F1F1F1] p-4 rounded-lg">
                 <table className="w-full min-w-[800px] border-collapse">
+                  <thead>
+                    <tr className="border-b border-gray-200">
+                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                        <div className="flex items-center">
+                          ID
+                          <ChevronDown size={16} className="ml-1" />
+                        </div>
+                      </th>
+                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                        <div className="flex items-center">
+                          Data
+                          <ChevronDown size={16} className="ml-1" />
+                        </div>
+                      </th>
+                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                        <div className="flex items-center">
+                          Tipo
+                          <ChevronDown size={16} className="ml-1" />
+                        </div>
+                      </th>
+                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                        <div className="flex items-center">
+                          Profissional
+                          <ChevronDown size={16} className="ml-1" />
+                        </div>
+                      </th>
+                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                        <div className="flex items-center">
+                          UF
+                          <ChevronDown size={16} className="ml-1" />
+                        </div>
+                      </th>
+                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                        <div className="flex items-center">
+                          Cidade
+                          <ChevronDown size={16} className="ml-1" />
+                        </div>
+                      </th>
+                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                        <div className="flex items-center">
+                          Valor
+                          <ChevronDown size={16} className="ml-1" />
+                        </div>
+                      </th>
+                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                        <div className="flex items-center">
+                          Status
+                          <ChevronDown size={16} className="ml-1" />
+                        </div>
+                      </th>
+                      <th className="py-3 px-4 text-center text-sm font-medium text-gray-500"></th>
+                    </tr>
+                  </thead>
                   <tbody>
-                    {/* Row 1 */}
-                    <tr className="border-t border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">--------</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-[#C5D69D] text-gray-800">Ativa</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Row 2 */}
-                    <tr className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">Nome do profissional</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-gray-200 text-gray-800">Encerrada</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Row 3 */}
-                    <tr className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">--------</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-[#C5D69D] text-gray-800">Ativa</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Row 4 */}
-                    <tr className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">Nome do profissional</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-gray-200 text-gray-800">Encerrada</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Row 5 */}
-                    <tr className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">--------</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-[#C5D69D] text-gray-800">Ativa</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Row 6 */}
-                    <tr className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">Nome do profissional</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-gray-200 text-gray-800">Encerrada</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Row 7 */}
-                    <tr className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">--------</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-[#C5D69D] text-gray-800">Ativa</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Row 8 */}
-                    <tr className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">Nome do profissional</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-gray-200 text-gray-800">Encerrada</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Row 9 */}
-                    <tr className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">--------</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-[#C5D69D] text-gray-800">Ativa</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Row 10 */}
-                    <tr className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-sm">00/00/00</td>
-                      <td className="py-3 px-4 text-sm">Sertanejo</td>
-                      <td className="py-3 px-4 text-sm">Nome do profissional</td>
-                      <td className="py-3 px-4 text-sm">BA</td>
-                      <td className="py-3 px-4 text-sm">Salvador</td>
-                      <td className="py-3 px-4 text-sm">R$ 00,00</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="px-4 py-1 rounded-full text-xs bg-gray-200 text-gray-800">Encerrada</span>
-                      </td>
-                      <td className="py-3 px-4 text-center">
-                        <button className="text-gray-500 hover:text-gray-700">
-                          <MoreVertical size={18} />
-                        </button>
-                      </td>
-                    </tr>
+                    {requestsData.map((request, index) => (
+                      <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                        <td className="py-3 px-4 text-sm">{request.id}</td>
+                        <td className="py-3 px-4 text-sm">{request.date}</td>
+                        <td className="py-3 px-4 text-sm">{request.type}</td>
+                        <td className="py-3 px-4 text-sm">{request.professional}</td>
+                        <td className="py-3 px-4 text-sm">{request.uf}</td>
+                        <td className="py-3 px-4 text-sm">{request.city}</td>
+                        <td className="py-3 px-4 text-sm">{request.value}</td>
+                        <td className="py-3 px-4 text-sm">
+                          <span
+                            className={`px-4 py-1 rounded-full text-xs ${
+                              request.status === "Ativa" ? "bg-[#C5D69D] text-gray-800" : "bg-gray-200 text-gray-800"
+                            }`}
+                          >
+                            {request.status}
+                          </span>
+                        </td>
+                        <td className="py-3 px-4 text-center">
+                          <button className="text-gray-500 hover:text-gray-700">
+                            <MoreVertical size={18} />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

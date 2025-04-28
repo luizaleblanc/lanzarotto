@@ -33,6 +33,7 @@ const musicianData = {
 // Dados de exemplo para as solicitações do músico
 const requestsData = [
   {
+    id: "00001",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -42,6 +43,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00002",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -51,6 +53,7 @@ const requestsData = [
     status: "Encerrada",
   },
   {
+    id: "00003",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -60,6 +63,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00004",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -69,6 +73,7 @@ const requestsData = [
     status: "Encerrada",
   },
   {
+    id: "00005",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -78,6 +83,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00006",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -87,6 +93,7 @@ const requestsData = [
     status: "Encerrada",
   },
   {
+    id: "00007",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -96,6 +103,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00008",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -105,6 +113,7 @@ const requestsData = [
     status: "Encerrada",
   },
   {
+    id: "00009",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -114,6 +123,7 @@ const requestsData = [
     status: "Ativa",
   },
   {
+    id: "00010",
     date: "00/00/00",
     type: "Sertanejo",
     user: "Nome do usuário",
@@ -259,7 +269,7 @@ export default function MusicianDetails({ musicianId }: { musicianId: string }) 
                 <li>
                   <button
                     className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors w-full text-left"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => handleNavigation("/requests")}
                   >
                     <FileText size={20} />
                     SOLICITAÇÕES
@@ -369,79 +379,66 @@ export default function MusicianDetails({ musicianId }: { musicianId: string }) 
             {/* Solicitações Tab Content */}
             {activeTab === "solicitacoes" && (
               <>
-                {/* Filter Controls */}
-                <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-4">
-                  <div className="relative">
-                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                      <option>Data</option>
-                    </select>
-                    <ChevronDown
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                      size={18}
-                    />
-                  </div>
-                  <div className="relative">
-                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                      <option>Tipo</option>
-                    </select>
-                    <ChevronDown
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                      size={18}
-                    />
-                  </div>
-                  <div className="relative">
-                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                      <option>Usuário</option>
-                    </select>
-                    <ChevronDown
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                      size={18}
-                    />
-                  </div>
-                  <div className="relative">
-                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                      <option>UF</option>
-                    </select>
-                    <ChevronDown
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                      size={18}
-                    />
-                  </div>
-                  <div className="relative">
-                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                      <option>Cidade</option>
-                    </select>
-                    <ChevronDown
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                      size={18}
-                    />
-                  </div>
-                  <div className="relative">
-                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                      <option>Valor</option>
-                    </select>
-                    <ChevronDown
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                      size={18}
-                    />
-                  </div>
-                  <div className="relative md:col-start-6 md:col-end-7">
-                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                      <option>Status</option>
-                    </select>
-                    <ChevronDown
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                      size={18}
-                    />
-                  </div>
-                </div>
-
                 {/* Requests Table */}
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto bg-[#F1F1F1] p-4 rounded-lg">
                   <table className="w-full min-w-[800px] border-collapse">
+                    <thead>
+                      <tr className="border-b border-gray-200">
+                        <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                          <div className="flex items-center">
+                            ID
+                            <ChevronDown size={16} className="ml-1" />
+                          </div>
+                        </th>
+                        <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                          <div className="flex items-center">
+                            Data
+                            <ChevronDown size={16} className="ml-1" />
+                          </div>
+                        </th>
+                        <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                          <div className="flex items-center">
+                            Tipo
+                            <ChevronDown size={16} className="ml-1" />
+                          </div>
+                        </th>
+                        <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                          <div className="flex items-center">
+                            Usuário
+                            <ChevronDown size={16} className="ml-1" />
+                          </div>
+                        </th>
+                        <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                          <div className="flex items-center">
+                            UF
+                            <ChevronDown size={16} className="ml-1" />
+                          </div>
+                        </th>
+                        <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                          <div className="flex items-center">
+                            Cidade
+                            <ChevronDown size={16} className="ml-1" />
+                          </div>
+                        </th>
+                        <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                          <div className="flex items-center">
+                            Valor
+                            <ChevronDown size={16} className="ml-1" />
+                          </div>
+                        </th>
+                        <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                          <div className="flex items-center">
+                            Status
+                            <ChevronDown size={16} className="ml-1" />
+                          </div>
+                        </th>
+                        <th className="py-3 px-4 text-center text-sm font-medium text-gray-500"></th>
+                      </tr>
+                    </thead>
                     <tbody>
                       {requestsData.map((request, index) => (
                         <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                          <td className="py-3 px-4 text-sm">{request.id}</td>
                           <td className="py-3 px-4 text-sm">{request.date}</td>
                           <td className="py-3 px-4 text-sm">{request.type}</td>
                           <td className="py-3 px-4 text-sm">{request.user}</td>

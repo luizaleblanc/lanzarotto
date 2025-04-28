@@ -19,62 +19,113 @@ import {
   ChevronRight,
 } from "lucide-react"
 
-// Dados de exemplo para a tabela de músicos
-const musiciansData = [
-  { id: "00001", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00002", name: "Marina Silva", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+// Dados de exemplo para a tabela de solicitações
+const requestsData = [
   {
-    id: "00003",
-    name: "Carlos Oliveira",
-    email: "mail@gmail.com",
-    phone: "(00) 00000-0000",
+    id: "00001",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "--------",
     uf: "BA",
     city: "Salvador",
+    value: "R$ 00,00",
+    status: "Ativa",
+  },
+  {
+    id: "00002",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Encerrada",
+  },
+  {
+    id: "00003",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "--------",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Ativa",
   },
   {
     id: "00004",
-    name: "Juliana Santos",
-    email: "mail@gmail.com",
-    phone: "(00) 00000-0000",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
     uf: "BA",
     city: "Salvador",
+    value: "R$ 00,00",
+    status: "Encerrada",
   },
   {
     id: "00005",
-    name: "Roberto Almeida",
-    email: "mail@gmail.com",
-    phone: "(00) 00000-0000",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "--------",
     uf: "BA",
     city: "Salvador",
+    value: "R$ 00,00",
+    status: "Ativa",
   },
   {
     id: "00006",
-    name: "Fernanda Costa",
-    email: "mail@gmail.com",
-    phone: "(00) 00000-0000",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
     uf: "BA",
     city: "Salvador",
+    value: "R$ 00,00",
+    status: "Encerrada",
   },
-  { id: "00007", name: "Paulo Mendes", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  {
+    id: "00007",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "--------",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Ativa",
+  },
   {
     id: "00008",
-    name: "Luciana Ferreira",
-    email: "mail@gmail.com",
-    phone: "(00) 00000-0000",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
     uf: "BA",
     city: "Salvador",
+    value: "R$ 00,00",
+    status: "Encerrada",
   },
-  { id: "00009", name: "Ricardo Souza", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00010", name: "Amanda Lima", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  {
+    id: "00009",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "--------",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Ativa",
+  },
+  {
+    id: "00010",
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Encerrada",
+  },
 ]
 
-export default function MusiciansPage() {
+export default function RequestsPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const router = useRouter()
-
-  const handleMusicianClick = (musicianId: string) => {
-    router.push(`/musicians/${musicianId}`)
-  }
 
   const handleNavigation = (path: string) => {
     router.push(path)
@@ -84,8 +135,8 @@ export default function MusiciansPage() {
   return (
     <PageTransition>
       <div className="flex flex-col h-screen">
-        {/* Header */}
-        <header className="bg-black text-white py-3 px-4 md:px-6 flex justify-between items-center">
+        {/* Header - Fixo */}
+        <header className="bg-black text-white py-3 px-4 md:px-6 flex justify-between items-center sticky top-0 z-10">
           <div className="flex items-center gap-2 md:gap-3">
             <div className="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full"></div>
             <div>
@@ -120,11 +171,11 @@ export default function MusiciansPage() {
             ></div>
           )}
 
-          {/* Sidebar */}
+          {/* Sidebar - Fixa */}
           <aside
             className={`${
               mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-            } fixed top-[57px] bottom-0 w-[200px] bg-gray-100 z-30 transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:z-0`}
+            } fixed top-[57px] bottom-0 w-[200px] bg-gray-100 z-30 transition-transform duration-300 ease-in-out md:translate-x-0 md:sticky md:top-[57px] md:h-[calc(100vh-57px)] md:z-0`}
           >
             <nav>
               <ul>
@@ -148,7 +199,7 @@ export default function MusiciansPage() {
                 </li>
                 <li>
                   <button
-                    className="flex items-center gap-3 py-4 px-6 bg-[#B8860B] text-white font-medium hover:bg-[#a67719] transition-colors w-full text-left"
+                    className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors w-full text-left"
                     onClick={() => handleNavigation("/musicians")}
                   >
                     <Mic2 size={20} />
@@ -157,7 +208,7 @@ export default function MusiciansPage() {
                 </li>
                 <li>
                   <button
-                    className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors w-full text-left"
+                    className="flex items-center gap-3 py-4 px-6 bg-[#B8860B] text-white font-medium hover:bg-[#a67719] transition-colors w-full text-left"
                     onClick={() => handleNavigation("/requests")}
                   >
                     <FileText size={20} />
@@ -190,12 +241,12 @@ export default function MusiciansPage() {
           <main className="flex-1 p-4 md:p-6 bg-white overflow-auto">
             {/* Breadcrumb */}
             <div className="mb-4">
-              <h2 className="text-sm font-medium text-gray-500 uppercase">MÚSICOS</h2>
+              <h2 className="text-sm font-medium text-gray-500 uppercase">SOLICITAÇÕES</h2>
             </div>
 
             {/* Page Title */}
             <div className="mb-6">
-              <h1 className="text-2xl font-bold">Músicos</h1>
+              <h1 className="text-2xl font-bold">Solicitações</h1>
             </div>
 
             {/* Search and Filter */}
@@ -223,7 +274,7 @@ export default function MusiciansPage() {
               </div>
             </div>
 
-            {/* Musicians Table */}
+            {/* Requests Table */}
             <div className="overflow-x-auto">
               <table className="w-full min-w-[800px] border-collapse">
                 <thead>
@@ -236,19 +287,19 @@ export default function MusiciansPage() {
                     </th>
                     <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
                       <div className="flex items-center">
-                        Nome do usuário
+                        Data
                         <ChevronDown size={16} className="ml-1" />
                       </div>
                     </th>
                     <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
                       <div className="flex items-center">
-                        Email
+                        Tipo
                         <ChevronDown size={16} className="ml-1" />
                       </div>
                     </th>
                     <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
                       <div className="flex items-center">
-                        Telefone
+                        Profissional
                         <ChevronDown size={16} className="ml-1" />
                       </div>
                     </th>
@@ -264,23 +315,41 @@ export default function MusiciansPage() {
                         <ChevronDown size={16} className="ml-1" />
                       </div>
                     </th>
+                    <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                      <div className="flex items-center">
+                        Valor
+                        <ChevronDown size={16} className="ml-1" />
+                      </div>
+                    </th>
+                    <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                      <div className="flex items-center">
+                        Status
+                        <ChevronDown size={16} className="ml-1" />
+                      </div>
+                    </th>
                     <th className="py-3 px-4 text-center text-sm font-medium text-gray-500"></th>
                   </tr>
                 </thead>
                 <tbody>
-                  {musiciansData.map((musician, index) => (
-                    <tr
-                      key={index}
-                      className="border-b border-gray-200 hover:bg-gray-50 cursor-pointer"
-                      onClick={() => handleMusicianClick(musician.id)}
-                    >
-                      <td className="py-3 px-4 text-sm">{musician.id}</td>
-                      <td className="py-3 px-4 text-sm">{musician.name}</td>
-                      <td className="py-3 px-4 text-sm">{musician.email}</td>
-                      <td className="py-3 px-4 text-sm">{musician.phone}</td>
-                      <td className="py-3 px-4 text-sm">{musician.uf}</td>
-                      <td className="py-3 px-4 text-sm">{musician.city}</td>
-                      <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
+                  {requestsData.map((request, index) => (
+                    <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                      <td className="py-3 px-4 text-sm">{request.id}</td>
+                      <td className="py-3 px-4 text-sm">{request.date}</td>
+                      <td className="py-3 px-4 text-sm">{request.type}</td>
+                      <td className="py-3 px-4 text-sm">{request.professional}</td>
+                      <td className="py-3 px-4 text-sm">{request.uf}</td>
+                      <td className="py-3 px-4 text-sm">{request.city}</td>
+                      <td className="py-3 px-4 text-sm">{request.value}</td>
+                      <td className="py-3 px-4 text-sm">
+                        <span
+                          className={`px-4 py-1 rounded-full text-xs ${
+                            request.status === "Ativa" ? "bg-[#C5D69D] text-gray-800" : "bg-gray-200 text-gray-800"
+                          }`}
+                        >
+                          {request.status}
+                        </span>
+                      </td>
+                      <td className="py-3 px-4 text-center">
                         <button className="text-gray-500 hover:text-gray-700">
                           <MoreVertical size={18} />
                         </button>

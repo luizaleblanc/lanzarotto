@@ -158,7 +158,7 @@ export default function UsersPage() {
                 <li>
                   <button
                     className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors w-full text-left"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => handleNavigation("/requests")}
                   >
                     <FileText size={20} />
                     SOLICITAÇÕES
@@ -275,9 +275,7 @@ export default function UsersPage() {
                       onClick={() => handleUserClick(user.id)}
                     >
                       <td className="py-3 px-4 text-sm">{user.id}</td>
-                      <td className="py-3 px-4 text-sm">
-                        <span className="text-gray-800 hover:text-[#B8860B] transition-colors">{user.name}</span>
-                      </td>
+                      <td className="py-3 px-4 text-sm">{user.name}</td>
                       <td className="py-3 px-4 text-sm">{user.email}</td>
                       <td className="py-3 px-4 text-sm">{user.phone}</td>
                       <td className="py-3 px-4 text-sm">{user.uf}</td>

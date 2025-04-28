@@ -106,7 +106,7 @@ export default function Dashboard() {
                 <li>
                   <button
                     className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors w-full text-left"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => handleNavigation("/requests")}
                   >
                     <FileText size={20} />
                     SOLICITAÇÕES
