@@ -248,166 +248,174 @@ export default function UserDetails({ userId }: { userId: string }) {
           </aside>
 
           {/* Main Content */}
-          <main className="flex-1 p-4 md:p-6 bg-white overflow-auto">
-            {/* Breadcrumb */}
-            <div className="mb-4">
-              <h2 className="text-sm font-medium text-gray-500 uppercase">USUÁRIOS</h2>
-            </div>
-
-            {/* Page Title */}
-            <div className="mb-6">
-              <h1 className="text-2xl font-bold">Detalhes do usuário</h1>
-            </div>
-
-            {/* User Details Card */}
-            <div className="bg-white rounded-lg shadow mb-8 relative">
-              <div className="absolute right-6 top-6">
-                <div className="flex items-center">
-                  <label className="switch">
-                    <input type="checkbox" checked={isActive} onChange={() => setIsActive(!isActive)} />
-                    <span className="slider"></span>
-                  </label>
-                </div>
+          <main className="flex-1 overflow-auto">
+            <div className="p-4 md:p-6 bg-white">
+              {/* Breadcrumb */}
+              <div className="mb-4">
+                <h2 className="text-sm font-medium text-gray-500 uppercase">USUÁRIOS</h2>
               </div>
 
-              <div className="p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
-                {/* User Avatar */}
-                <div className="w-24 h-24 bg-gray-200 rounded-full flex-shrink-0"></div>
+              {/* Page Title */}
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold">Detalhes do usuário</h1>
+              </div>
 
-                {/* User Info */}
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 w-full">
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-500">Nome</h3>
-                    <p>Marina Silva</p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-500">Email</h3>
-                    <p>mail@email.com</p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-500">Telefone</h3>
-                    <p>(00) 00000-0000</p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-500">Estado</h3>
-                    <p>BA</p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-500">Cidade</h3>
-                    <p>Salvador</p>
+              {/* User Details Card */}
+              <div className="bg-white rounded-lg shadow mb-8 relative">
+                <div className="absolute right-6 top-6">
+                  <div className="flex items-center">
+                    <label className="switch">
+                      <input type="checkbox" checked={isActive} onChange={() => setIsActive(!isActive)} />
+                      <span className="slider"></span>
+                    </label>
                   </div>
                 </div>
+
+                <div className="p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
+                  {/* User Avatar */}
+                  <div className="w-24 h-24 bg-gray-200 rounded-full flex-shrink-0"></div>
+
+                  {/* User Info */}
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 w-full">
+                    <div>
+                      <h3 className="text-sm font-medium text-gray-500">Nome</h3>
+                      <p>Marina Silva</p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-gray-500">Email</h3>
+                      <p>mail@email.com</p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-gray-500">Telefone</h3>
+                      <p>(00) 00000-0000</p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-gray-500">Estado</h3>
+                      <p>BA</p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-gray-500">Cidade</h3>
+                      <p>Salvador</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Requests Section */}
-            <div>
-              <h2 className="text-xl font-bold mb-4">Solicitações</h2>
+            {/* Requests Section with Background */}
+            <div className="bg-white min-h-[calc(100%-300px)] -ml-[200px] pl-[200px] md:pl-[200px]">
+              <div className="px-4 md:px-6 pt-6">
+                <h2 className="text-xl font-bold mb-4">Solicitações</h2>
 
-              {/* Requests Table */}
-              <div className="overflow-x-auto bg-[#F1F1F1] p-4 rounded-lg">
-                <table className="w-full min-w-[800px] border-collapse">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                        <div className="flex items-center">
-                          ID
-                          <ChevronDown size={16} className="ml-1" />
-                        </div>
-                      </th>
-                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                        <div className="flex items-center">
-                          Data
-                          <ChevronDown size={16} className="ml-1" />
-                        </div>
-                      </th>
-                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                        <div className="flex items-center">
-                          Tipo
-                          <ChevronDown size={16} className="ml-1" />
-                        </div>
-                      </th>
-                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                        <div className="flex items-center">
-                          Profissional
-                          <ChevronDown size={16} className="ml-1" />
-                        </div>
-                      </th>
-                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                        <div className="flex items-center">
-                          UF
-                          <ChevronDown size={16} className="ml-1" />
-                        </div>
-                      </th>
-                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                        <div className="flex items-center">
-                          Cidade
-                          <ChevronDown size={16} className="ml-1" />
-                        </div>
-                      </th>
-                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                        <div className="flex items-center">
-                          Valor
-                          <ChevronDown size={16} className="ml-1" />
-                        </div>
-                      </th>
-                      <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                        <div className="flex items-center">
-                          Status
-                          <ChevronDown size={16} className="ml-1" />
-                        </div>
-                      </th>
-                      <th className="py-3 px-4 text-center text-sm font-medium text-gray-500"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {requestsData.map((request, index) => (
-                      <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
-                        <td className="py-3 px-4 text-sm">{request.id}</td>
-                        <td className="py-3 px-4 text-sm">{request.date}</td>
-                        <td className="py-3 px-4 text-sm">{request.type}</td>
-                        <td className="py-3 px-4 text-sm">{request.professional}</td>
-                        <td className="py-3 px-4 text-sm">{request.uf}</td>
-                        <td className="py-3 px-4 text-sm">{request.city}</td>
-                        <td className="py-3 px-4 text-sm">{request.value}</td>
-                        <td className="py-3 px-4 text-sm">
-                          <span
-                            className={`px-4 py-1 rounded-full text-xs ${
-                              request.status === "Ativa" ? "bg-[#C5D69D] text-gray-800" : "bg-gray-200 text-gray-800"
-                            }`}
-                          >
-                            {request.status}
-                          </span>
-                        </td>
-                        <td className="py-3 px-4 text-center">
-                          <button className="text-gray-500 hover:text-gray-700">
-                            <MoreVertical size={18} />
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                {/* Requests Table */}
+                <div className="overflow-x-auto mb-6">
+                  <div className="bg-white rounded-lg p-4">
+                    <table className="w-full min-w-[800px] border-collapse">
+                      <thead>
+                        <tr className="border-b border-gray-200">
+                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                            <div className="flex items-center">
+                              ID
+                              <ChevronDown size={16} className="ml-1" />
+                            </div>
+                          </th>
+                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                            <div className="flex items-center">
+                              Data
+                              <ChevronDown size={16} className="ml-1" />
+                            </div>
+                          </th>
+                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                            <div className="flex items-center">
+                              Tipo
+                              <ChevronDown size={16} className="ml-1" />
+                            </div>
+                          </th>
+                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                            <div className="flex items-center">
+                              Profissional
+                              <ChevronDown size={16} className="ml-1" />
+                            </div>
+                          </th>
+                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                            <div className="flex items-center">
+                              UF
+                              <ChevronDown size={16} className="ml-1" />
+                            </div>
+                          </th>
+                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                            <div className="flex items-center">
+                              Cidade
+                              <ChevronDown size={16} className="ml-1" />
+                            </div>
+                          </th>
+                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                            <div className="flex items-center">
+                              Valor
+                              <ChevronDown size={16} className="ml-1" />
+                            </div>
+                          </th>
+                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                            <div className="flex items-center">
+                              Status
+                              <ChevronDown size={16} className="ml-1" />
+                            </div>
+                          </th>
+                          <th className="py-3 px-4 text-center text-sm font-medium text-gray-500"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {requestsData.map((request, index) => (
+                          <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                            <td className="py-3 px-4 text-sm">{request.id}</td>
+                            <td className="py-3 px-4 text-sm">{request.date}</td>
+                            <td className="py-3 px-4 text-sm">{request.type}</td>
+                            <td className="py-3 px-4 text-sm">{request.professional}</td>
+                            <td className="py-3 px-4 text-sm">{request.uf}</td>
+                            <td className="py-3 px-4 text-sm">{request.city}</td>
+                            <td className="py-3 px-4 text-sm">{request.value}</td>
+                            <td className="py-3 px-4 text-sm">
+                              <span
+                                className={`px-4 py-1 rounded-full text-xs ${
+                                  request.status === "Ativa"
+                                    ? "bg-[#C5D69D] text-gray-800"
+                                    : "bg-gray-200 text-gray-800"
+                                }`}
+                              >
+                                {request.status}
+                              </span>
+                            </td>
+                            <td className="py-3 px-4 text-center">
+                              <button className="text-gray-500 hover:text-gray-700">
+                                <MoreVertical size={18} />
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
 
-              {/* Pagination */}
-              <div className="flex justify-end items-center mt-6">
-                <div className="flex items-center space-x-2">
-                  <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
-                    <ChevronLeft size={16} />
-                  </button>
-                  <button className="w-8 h-8 flex items-center justify-center rounded-full bg-[#B8860B] text-white">
-                    1
-                  </button>
-                  <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
-                    2
-                  </button>
-                  <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
-                    3
-                  </button>
-                  <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
-                    <ChevronRight size={16} />
-                  </button>
+                {/* Pagination */}
+                <div className="flex justify-end items-center pb-6">
+                  <div className="flex items-center space-x-2">
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
+                      <ChevronLeft size={16} />
+                    </button>
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full bg-[#B8860B] text-white">
+                      1
+                    </button>
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
+                      2
+                    </button>
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
+                      3
+                    </button>
+                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
+                      <ChevronRight size={16} />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
