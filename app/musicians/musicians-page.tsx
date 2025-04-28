@@ -21,16 +21,51 @@ import {
 
 // Dados de exemplo para a tabela de músicos
 const musiciansData = [
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00000", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  { id: "00001", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  { id: "00002", name: "Marina Silva", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  {
+    id: "00003",
+    name: "Carlos Oliveira",
+    email: "mail@gmail.com",
+    phone: "(00) 00000-0000",
+    uf: "BA",
+    city: "Salvador",
+  },
+  {
+    id: "00004",
+    name: "Juliana Santos",
+    email: "mail@gmail.com",
+    phone: "(00) 00000-0000",
+    uf: "BA",
+    city: "Salvador",
+  },
+  {
+    id: "00005",
+    name: "Roberto Almeida",
+    email: "mail@gmail.com",
+    phone: "(00) 00000-0000",
+    uf: "BA",
+    city: "Salvador",
+  },
+  {
+    id: "00006",
+    name: "Fernanda Costa",
+    email: "mail@gmail.com",
+    phone: "(00) 00000-0000",
+    uf: "BA",
+    city: "Salvador",
+  },
+  { id: "00007", name: "Paulo Mendes", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  {
+    id: "00008",
+    name: "Luciana Ferreira",
+    email: "mail@gmail.com",
+    phone: "(00) 00000-0000",
+    uf: "BA",
+    city: "Salvador",
+  },
+  { id: "00009", name: "Ricardo Souza", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  { id: "00010", name: "Amanda Lima", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
 ]
 
 export default function MusiciansPage() {
@@ -38,8 +73,7 @@ export default function MusiciansPage() {
   const router = useRouter()
 
   const handleMusicianClick = (musicianId: string) => {
-    // Navegação para detalhes do músico (a ser implementada)
-    // router.push(`/musicians/${musicianId}`)
+    router.push(`/musicians/${musicianId}`)
   }
 
   const handleNavigation = (path: string) => {
