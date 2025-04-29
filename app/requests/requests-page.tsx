@@ -242,7 +242,7 @@ export default function RequestsPage() {
           </aside>
 
           {/* Main Content */}
-          <main className="flex-1 overflow-auto">
+          <main className="flex-1 overflow-auto text-[#3A3A3A]">
             <div className="p-4 md:p-6 bg-white">
               {/* Breadcrumb */}
               <div className="mb-4">

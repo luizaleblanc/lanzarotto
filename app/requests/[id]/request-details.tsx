@@ -17,6 +17,8 @@ import {
   Clock,
   CheckCircle2,
   ThumbsUp,
+  Star,
+  StarHalf,
 } from "lucide-react"
 
 // Dados de exemplo para a solicitação
@@ -51,6 +53,24 @@ const musicianData = {
   city: "Salvador",
 }
 
+// Dados de exemplo para a desistência
+const withdrawalData = {
+  reason: "Desistência",
+  description:
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+}
+
+// Dados de exemplo para as avaliações
+const reviewsData = [
+  {
+    id: 1,
+    rating: 4,
+    date: "1 Semana atrás",
+    text: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
+    user: "Usuário",
+  },
+]
+
 export default function RequestDetails({ requestId }: { requestId: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState("solicitante") // solicitante, musico, desistencia, avaliacao
@@ -59,6 +79,28 @@ export default function RequestDetails({ requestId }: { requestId: string }) {
   const handleNavigation = (path: string) => {
     router.push(path)
     setMobileMenuOpen(false)
+  }
+
+  // Componente para renderizar as estrelas de avaliação
+  const RatingStars = ({ rating }: { rating: number }) => {
+    const stars = []
+    const fullStars = Math.floor(rating)
+    const hasHalfStar = rating % 1 !== 0
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<Star key={`star-${i}`} className="fill-[#B8860B] text-[#B8860B]" size={16} />)
+    }
+
+    if (hasHalfStar) {
+      stars.push(<StarHalf key="half-star" className="fill-[#B8860B] text-[#B8860B]" size={16} />)
+    }
+
+    const emptyStars = 5 - stars.length
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<Star key={`empty-star-${i}`} className="text-gray-300" size={16} />)
+    }
+
+    return <div className="flex">{stars}</div>
   }
 
   return (
@@ -402,14 +444,42 @@ export default function RequestDetails({ requestId }: { requestId: string }) {
               {/* Desistência Tab Content */}
               {activeTab === "desistencia" && (
                 <div className="bg-white rounded-lg shadow p-6 mb-6">
-                  <p className="text-gray-500">Não há informações de desistência para esta solicitação.</p>
+                  <h2 className="font-montserrat font-medium text-[20px] leading-[100%] mb-6">Resumo da desistência</h2>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="font-poppins font-bold text-[18px] leading-[100%] mb-3">Motivo</h3>
+                      <p className="font-poppins font-light text-[14px] leading-[100%] text-gray-700">
+                        {withdrawalData.reason}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="font-poppins font-bold text-[18px] leading-[100%] mb-3">Descrição</h3>
+                      <p className="font-poppins font-light text-[14px] leading-[140%] text-gray-700">
+                        {withdrawalData.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               )}
 
               {/* Avaliação Tab Content */}
               {activeTab === "avaliacao" && (
                 <div className="bg-white rounded-lg shadow p-6 mb-6">
-                  <p className="text-gray-500">Esta solicitação ainda não foi avaliada.</p>
+                  <div className="w-full max-w-3xl mx-auto">
+                    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                      <div className="flex justify-between items-start mb-3">
+                        <RatingStars rating={reviewsData[0].rating} />
+                        <span className="text-xs text-gray-500">{reviewsData[0].date}</span>
+                      </div>
+                      <p className="text-sm text-gray-700 mb-4">{reviewsData[0].text}</p>
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
+                        <span className="text-sm font-medium">{reviewsData[0].user}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
