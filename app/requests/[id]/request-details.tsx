@@ -42,6 +42,15 @@ const requesterData = {
   city: "Salvador",
 }
 
+// Dados de exemplo para o músico
+const musicianData = {
+  name: "Marina Silva",
+  email: "mail@email.com",
+  phone: "(00) 00000-0000",
+  state: "BA",
+  city: "Salvador",
+}
+
 export default function RequestDetails({ requestId }: { requestId: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState("solicitante") // solicitante, musico, desistencia, avaliacao
@@ -362,7 +371,31 @@ export default function RequestDetails({ requestId }: { requestId: string }) {
               {/* Músico Tab Content */}
               {activeTab === "musico" && (
                 <div className="bg-white rounded-lg shadow p-6 mb-6">
-                  <p className="text-gray-500">Nenhum músico atribuído a esta solicitação ainda.</p>
+                  <div className="flex flex-col md:flex-row items-start gap-6">
+                    <div className="w-24 h-24 bg-gray-200 rounded-full flex-shrink-0"></div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                      <div>
+                        <h3 className="text-sm font-medium text-gray-500">Nome</h3>
+                        <p>{musicianData.name}</p>
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-medium text-gray-500">Email</h3>
+                        <p>{musicianData.email}</p>
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-medium text-gray-500">Telefone</h3>
+                        <p>{musicianData.phone}</p>
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-medium text-gray-500">Estado</h3>
+                        <p>{musicianData.state}</p>
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-medium text-gray-500">Cidade</h3>
+                        <p>{musicianData.city}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
 
