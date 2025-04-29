@@ -466,16 +466,16 @@ export default function RequestDetails({ requestId }: { requestId: string }) {
 
               {/* Avaliação Tab Content */}
               {activeTab === "avaliacao" && (
-                <div className="bg-white rounded-lg shadow p-6 mb-6">
-                  <div className="flex">
-                    <div className="w-[297px] h-[242px] border border-gray-200 rounded-lg p-6 shadow-sm mt-4">
-                      <div className="flex justify-between items-start mb-3">
+                <div className="bg-white rounded-lg shadow p-8 mb-6">
+                  <div className="flex justify-start">
+                    <div className="w-[350px] border border-gray-200 rounded-lg p-8 shadow-sm">
+                      <div className="flex justify-between items-start mb-4">
                         <RatingStars rating={reviewsData[0].rating} />
                         <span className="text-xs text-gray-500">{reviewsData[0].date}</span>
                       </div>
-                      <p className="text-sm text-gray-700 mb-4">{reviewsData[0].text}</p>
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
+                      <p className="text-sm text-gray-700 mb-6">{reviewsData[0].text}</p>
+                      <div className="flex items-center gap-4 mt-4 pl-2">
+                        <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
                         <span className="text-sm font-medium">{reviewsData[0].user}</span>
                       </div>
                     </div>

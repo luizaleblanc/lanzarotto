@@ -45,6 +45,15 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      animation: {
+        fadeIn: "fadeIn 0.1s ease-in",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
