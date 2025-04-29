@@ -17,119 +17,106 @@ import {
   MoreVertical,
   ChevronLeft,
   ChevronRight,
+  CheckCircle,
 } from "lucide-react"
 
-// Dados de exemplo para a tabela de solicitações
-const requestsData = [
+// Dados de exemplo para a tabela de financeiro
+const financialData = [
   {
-    id: "00001",
-    date: "00/00/00",
-    type: "Sertanejo",
-    professional: "--------",
-    uf: "BA",
-    city: "Salvador",
-    value: "R$ 00,00",
-    status: "Ativa",
-  },
-  {
-    id: "00002",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
-    status: "Encerrada",
+    status: "Pago",
   },
   {
-    id: "00003",
-    date: "00/00/00",
-    type: "Sertanejo",
-    professional: "--------",
-    uf: "BA",
-    city: "Salvador",
-    value: "R$ 00,00",
-    status: "Ativa",
-  },
-  {
-    id: "00004",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
-    status: "Encerrada",
+    status: "Pago",
   },
   {
-    id: "00005",
-    date: "00/00/00",
-    type: "Sertanejo",
-    professional: "--------",
-    uf: "BA",
-    city: "Salvador",
-    value: "R$ 00,00",
-    status: "Ativa",
-  },
-  {
-    id: "00006",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
-    status: "Encerrada",
+    status: "Pago",
   },
   {
-    id: "00007",
-    date: "00/00/00",
-    type: "Sertanejo",
-    professional: "--------",
-    uf: "BA",
-    city: "Salvador",
-    value: "R$ 00,00",
-    status: "Ativa",
-  },
-  {
-    id: "00008",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
-    status: "Encerrada",
+    status: "Pago",
   },
   {
-    id: "00009",
-    date: "00/00/00",
-    type: "Sertanejo",
-    professional: "--------",
-    uf: "BA",
-    city: "Salvador",
-    value: "R$ 00,00",
-    status: "Ativa",
-  },
-  {
-    id: "00010",
     date: "00/00/00",
     type: "Sertanejo",
     professional: "Nome do profissional",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
-    status: "Encerrada",
+    status: "Pago",
+  },
+  {
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Pago",
+  },
+  {
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Pago",
+  },
+  {
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Pago",
+  },
+  {
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Pago",
+  },
+  {
+    date: "00/00/00",
+    type: "Sertanejo",
+    professional: "Nome do profissional",
+    uf: "BA",
+    city: "Salvador",
+    value: "R$ 00,00",
+    status: "Pago",
   },
 ]
 
-export default function RequestsPage() {
+export default function FinancialPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const router = useRouter()
-
-  const handleRequestClick = (requestId: string) => {
-    router.push(`/requests/${requestId}`)
-  }
 
   const handleNavigation = (path: string) => {
     router.push(path)
@@ -212,7 +199,7 @@ export default function RequestsPage() {
                 </li>
                 <li>
                   <button
-                    className="flex items-center gap-3 py-4 px-6 bg-[#B8860B] text-white font-medium hover:bg-[#a67719] transition-colors w-full text-left"
+                    className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors w-full text-left"
                     onClick={() => handleNavigation("/requests")}
                   >
                     <FileText size={20} />
@@ -221,7 +208,7 @@ export default function RequestsPage() {
                 </li>
                 <li>
                   <button
-                    className="flex items-center gap-3 py-4 px-6 text-gray-700 font-medium hover:bg-[#B8860B] hover:text-white transition-colors w-full text-left"
+                    className="flex items-center gap-3 py-4 px-6 bg-[#B8860B] text-white font-medium hover:bg-[#a67719] transition-colors w-full text-left"
                     onClick={() => handleNavigation("/financial")}
                   >
                     <BarChart3 size={20} />
@@ -246,12 +233,12 @@ export default function RequestsPage() {
             <div className="p-4 md:p-6 bg-white">
               {/* Breadcrumb */}
               <div className="mb-4">
-                <h2 className="text-sm font-medium text-gray-500 uppercase">SOLICITAÇÕES</h2>
+                <h2 className="text-sm font-medium text-gray-500 uppercase">FINANCEIRO</h2>
               </div>
 
               {/* Page Title */}
               <div className="mb-6">
-                <h1 className="text-2xl font-bold">Solicitações</h1>
+                <h1 className="text-2xl font-bold">Financeiro</h1>
               </div>
 
               {/* Search and Filter */}
@@ -268,8 +255,8 @@ export default function RequestsPage() {
                   <div className="relative">
                     <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
                       <option>Todos</option>
-                      <option>Ativos</option>
-                      <option>Inativos</option>
+                      <option>Pagos</option>
+                      <option>Pendentes</option>
                     </select>
                     <ChevronDown
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -283,18 +270,12 @@ export default function RequestsPage() {
             {/* Content with Background */}
             <div className="bg-white min-h-[calc(100%-250px)] -ml-[200px] pl-[200px] md:pl-[200px]">
               <div className="px-4 md:px-6 pt-6">
-                {/* Requests Table */}
+                {/* Financial Table */}
                 <div className="overflow-x-auto mb-6">
                   <div className="bg-white rounded-lg p-4">
                     <table className="w-full min-w-[800px] border-collapse">
                       <thead>
                         <tr className="border-b border-gray-200">
-                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                            <div className="flex items-center">
-                              ID
-                              <ChevronDown size={16} className="ml-1" />
-                            </div>
-                          </th>
                           <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
                             <div className="flex items-center">
                               Data
@@ -341,28 +322,18 @@ export default function RequestsPage() {
                         </tr>
                       </thead>
                       <tbody>
-                        {requestsData.map((request, index) => (
-                          <tr
-                            key={index}
-                            className="border-b border-gray-200 hover:bg-gray-50 cursor-pointer"
-                            onClick={() => handleRequestClick(request.id)}
-                          >
-                            <td className="py-3 px-4 text-sm">{request.id}</td>
-                            <td className="py-3 px-4 text-sm">{request.date}</td>
-                            <td className="py-3 px-4 text-sm">{request.type}</td>
-                            <td className="py-3 px-4 text-sm">{request.professional}</td>
-                            <td className="py-3 px-4 text-sm">{request.uf}</td>
-                            <td className="py-3 px-4 text-sm">{request.city}</td>
-                            <td className="py-3 px-4 text-sm">{request.value}</td>
+                        {financialData.map((item, index) => (
+                          <tr key={index} className="border-b border-gray-200 hover:bg-gray-50 cursor-pointer">
+                            <td className="py-3 px-4 text-sm">{item.date}</td>
+                            <td className="py-3 px-4 text-sm">{item.type}</td>
+                            <td className="py-3 px-4 text-sm">{item.professional}</td>
+                            <td className="py-3 px-4 text-sm">{item.uf}</td>
+                            <td className="py-3 px-4 text-sm">{item.city}</td>
+                            <td className="py-3 px-4 text-sm">{item.value}</td>
                             <td className="py-3 px-4 text-sm">
-                              <span
-                                className={`px-4 py-1 rounded-full text-xs ${
-                                  request.status === "Ativa"
-                                    ? "bg-[#C5D69D] text-gray-800"
-                                    : "bg-gray-200 text-gray-800"
-                                }`}
-                              >
-                                {request.status}
+                              <span className="px-4 py-1 rounded-full text-xs bg-green-100 text-green-800 flex items-center w-fit gap-1">
+                                <CheckCircle size={12} className="text-green-600" />
+                                {item.status}
                               </span>
                             </td>
                             <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
