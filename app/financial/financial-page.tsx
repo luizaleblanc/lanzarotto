@@ -17,10 +17,9 @@ import {
   MoreVertical,
   ChevronLeft,
   ChevronRight,
-  CheckCircle,
 } from "lucide-react"
 
-// Dados de exemplo para a tabela de financeiro
+// Dados de exemplo para a tabela financeira
 const financialData = [
   {
     date: "00/00/00",
@@ -331,12 +330,11 @@ export default function FinancialPage() {
                             <td className="py-3 px-4 text-sm">{item.city}</td>
                             <td className="py-3 px-4 text-sm">{item.value}</td>
                             <td className="py-3 px-4 text-sm">
-                              <span className="px-4 py-1 rounded-full text-xs bg-green-100 text-green-800 flex items-center w-fit gap-1">
-                                <CheckCircle size={12} className="text-green-600" />
+                              <span className="px-4 py-1 rounded-full text-xs bg-[#C5E1A5] text-gray-800">
                                 {item.status}
                               </span>
                             </td>
-                            <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
+                            <td className="py-3 px-4 text-center">
                               <button className="text-gray-500 hover:text-gray-700">
                                 <MoreVertical size={18} />
                               </button>

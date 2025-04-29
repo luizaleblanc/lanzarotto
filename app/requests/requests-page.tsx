@@ -358,7 +358,7 @@ export default function RequestsPage() {
                               <span
                                 className={`px-4 py-1 rounded-full text-xs ${
                                   request.status === "Ativa"
-                                    ? "bg-[#C5D69D] text-gray-800"
+                                    ? "bg-[#C5E1A5] text-gray-800"
                                     : "bg-gray-200 text-gray-800"
                                 }`}
                               >
