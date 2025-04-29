@@ -303,7 +303,7 @@ export default function UserDetails({ userId }: { userId: string }) {
             </div>
 
             {/* Requests Section with Background */}
-            <div className="bg-white min-h-[calc(100%-300px)] -ml-[200px] pl-[200px] md:pl-[200px]">
+            <div className="bg-[#f1f1f1] min-h-[calc(100%-300px)] -ml-[200px] pl-[200px] md:pl-[200px] flex-1">
               <div className="px-4 md:px-6 pt-6">
                 <h2 className="text-xl font-bold mb-4">Solicitações</h2>
 

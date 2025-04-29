@@ -353,7 +353,7 @@ export default function MusicianDetails({ musicianId }: { musicianId: string }) 
             </div>
 
             {/* Tabs and Content with Background */}
-            <div className="bg-white min-h-[calc(100%-300px)] -ml-[200px] pl-[200px] md:pl-[200px]">
+            <div className="bg-[#f1f1f1] min-h-[calc(100%-300px)] -ml-[200px] pl-[200px] md:pl-[200px] flex-1">
               <div className="px-4 md:px-6 pt-6">
                 {/* Tabs */}
                 <div className="mb-6">
