@@ -195,7 +195,7 @@ export default function MusiciansPage() {
 
             {/* Page Title */}
             <div className="mb-6">
-              <h1 className="text-2xl font-bold">Músicos</h1>
+              <h1 className="text-2xl font-bold font-poppins">Músicos</h1>
             </div>
 
             {/* Search and Filter */}

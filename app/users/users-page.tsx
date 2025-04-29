@@ -195,7 +195,7 @@ export default function UsersPage() {
 
             {/* Page Title */}
             <div className="mb-6">
-              <h1 className="text-2xl font-bold">Usuários</h1>
+              <h1 className="text-2xl font-bold font-poppins">Usuários</h1>
             </div>
 
             {/* Search and Filter */}

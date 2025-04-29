@@ -228,144 +228,133 @@ export default function FinancialPage() {
           </aside>
 
           {/* Main Content */}
-          <main className="flex-1 overflow-auto text-[#3A3A3A]">
-            <div className="p-4 md:p-6 bg-white">
-              {/* Breadcrumb */}
-              <div className="mb-4">
-                <h2 className="text-sm font-medium text-gray-500 uppercase">FINANCEIRO</h2>
-              </div>
+          <main className="flex-1 p-4 md:p-6 bg-white overflow-auto">
+            {/* Breadcrumb */}
+            <div className="mb-4">
+              <h2 className="text-sm font-medium text-gray-500 uppercase">FINANCEIRO</h2>
+            </div>
 
-              {/* Page Title */}
-              <div className="mb-6">
-                <h1 className="text-2xl font-bold">Financeiro</h1>
-              </div>
+            {/* Page Title */}
+            <div className="mb-6">
+              <h1 className="text-2xl font-bold font-poppins">Financeiro</h1>
+            </div>
 
-              {/* Search and Filter */}
-              <div className="flex flex-col md:flex-row gap-4 mb-6">
-                <div className="relative flex-1">
-                  <input
-                    type="text"
-                    placeholder="Buscar"
-                    className="w-full py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm"
+            {/* Search and Filter */}
+            <div className="flex flex-col md:flex-row gap-4 mb-6">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  placeholder="Buscar"
+                  className="w-full py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm"
+                />
+                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              </div>
+              <div className="w-full md:w-[200px]">
+                <div className="relative">
+                  <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
+                    <option>Todos</option>
+                    <option>Pagos</option>
+                    <option>Pendentes</option>
+                  </select>
+                  <ChevronDown
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={18}
                   />
-                  <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                </div>
-                <div className="w-full md:w-[200px]">
-                  <div className="relative">
-                    <select className="w-full appearance-none py-2 px-4 pr-10 bg-gray-100 border border-gray-200 rounded text-sm">
-                      <option>Todos</option>
-                      <option>Pagos</option>
-                      <option>Pendentes</option>
-                    </select>
-                    <ChevronDown
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                      size={18}
-                    />
-                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Content with Background */}
-            <div className="bg-white min-h-[calc(100%-250px)] -ml-[200px] pl-[200px] md:pl-[200px]">
-              <div className="px-4 md:px-6 pt-6">
-                {/* Financial Table */}
-                <div className="overflow-x-auto mb-6">
-                  <div className="bg-white rounded-lg p-4">
-                    <table className="w-full min-w-[800px] border-collapse">
-                      <thead>
-                        <tr className="border-b border-gray-200">
-                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                            <div className="flex items-center">
-                              Data
-                              <ChevronDown size={16} className="ml-1" />
-                            </div>
-                          </th>
-                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                            <div className="flex items-center">
-                              Tipo
-                              <ChevronDown size={16} className="ml-1" />
-                            </div>
-                          </th>
-                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                            <div className="flex items-center">
-                              Profissional
-                              <ChevronDown size={16} className="ml-1" />
-                            </div>
-                          </th>
-                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                            <div className="flex items-center">
-                              UF
-                              <ChevronDown size={16} className="ml-1" />
-                            </div>
-                          </th>
-                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                            <div className="flex items-center">
-                              Cidade
-                              <ChevronDown size={16} className="ml-1" />
-                            </div>
-                          </th>
-                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                            <div className="flex items-center">
-                              Valor
-                              <ChevronDown size={16} className="ml-1" />
-                            </div>
-                          </th>
-                          <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
-                            <div className="flex items-center">
-                              Status
-                              <ChevronDown size={16} className="ml-1" />
-                            </div>
-                          </th>
-                          <th className="py-3 px-4 text-center text-sm font-medium text-gray-500"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {financialData.map((item, index) => (
-                          <tr key={index} className="border-b border-gray-200 hover:bg-gray-50 cursor-pointer">
-                            <td className="py-3 px-4 text-sm">{item.date}</td>
-                            <td className="py-3 px-4 text-sm">{item.type}</td>
-                            <td className="py-3 px-4 text-sm">{item.professional}</td>
-                            <td className="py-3 px-4 text-sm">{item.uf}</td>
-                            <td className="py-3 px-4 text-sm">{item.city}</td>
-                            <td className="py-3 px-4 text-sm">{item.value}</td>
-                            <td className="py-3 px-4 text-sm">
-                              <span className="px-4 py-1 rounded-full text-xs bg-[#C5E1A5] text-gray-800">
-                                {item.status}
-                              </span>
-                            </td>
-                            <td className="py-3 px-4 text-center">
-                              <button className="text-gray-500 hover:text-gray-700">
-                                <MoreVertical size={18} />
-                              </button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+            {/* Financial Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[800px] border-collapse">
+                <thead>
+                  <tr className="border-b border-gray-200">
+                    <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                      <div className="flex items-center">
+                        Data
+                        <ChevronDown size={16} className="ml-1" />
+                      </div>
+                    </th>
+                    <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                      <div className="flex items-center">
+                        Tipo
+                        <ChevronDown size={16} className="ml-1" />
+                      </div>
+                    </th>
+                    <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                      <div className="flex items-center">
+                        Profissional
+                        <ChevronDown size={16} className="ml-1" />
+                      </div>
+                    </th>
+                    <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                      <div className="flex items-center">
+                        UF
+                        <ChevronDown size={16} className="ml-1" />
+                      </div>
+                    </th>
+                    <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                      <div className="flex items-center">
+                        Cidade
+                        <ChevronDown size={16} className="ml-1" />
+                      </div>
+                    </th>
+                    <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                      <div className="flex items-center">
+                        Valor
+                        <ChevronDown size={16} className="ml-1" />
+                      </div>
+                    </th>
+                    <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">
+                      <div className="flex items-center">
+                        Status
+                        <ChevronDown size={16} className="ml-1" />
+                      </div>
+                    </th>
+                    <th className="py-3 px-4 text-center text-sm font-medium text-gray-500"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {financialData.map((item, index) => (
+                    <tr key={index} className="border-b border-gray-200 hover:bg-gray-50 cursor-pointer">
+                      <td className="py-3 px-4 text-sm">{item.date}</td>
+                      <td className="py-3 px-4 text-sm">{item.type}</td>
+                      <td className="py-3 px-4 text-sm">{item.professional}</td>
+                      <td className="py-3 px-4 text-sm">{item.uf}</td>
+                      <td className="py-3 px-4 text-sm">{item.city}</td>
+                      <td className="py-3 px-4 text-sm">{item.value}</td>
+                      <td className="py-3 px-4 text-sm">
+                        <span className="px-4 py-1 rounded-full text-xs bg-[#C5E1A5] text-gray-800">{item.status}</span>
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        <button className="text-gray-500 hover:text-gray-700">
+                          <MoreVertical size={18} />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-                {/* Pagination */}
-                <div className="flex justify-end items-center pb-6">
-                  <div className="flex items-center space-x-2">
-                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
-                      <ChevronLeft size={16} />
-                    </button>
-                    <button className="w-8 h-8 flex items-center justify-center rounded-full bg-[#B8860B] text-white">
-                      1
-                    </button>
-                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
-                      2
-                    </button>
-                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
-                      3
-                    </button>
-                    <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
-                      <ChevronRight size={16} />
-                    </button>
-                  </div>
-                </div>
+            {/* Pagination */}
+            <div className="flex justify-end items-center mt-6">
+              <div className="flex items-center space-x-2">
+                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
+                  <ChevronLeft size={16} />
+                </button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-full bg-[#B8860B] text-white">
+                  1
+                </button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
+                  2
+                </button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-[#B8860B] hover:text-white transition-colors">
+                  3
+                </button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100">
+                  <ChevronRight size={16} />
+                </button>
               </div>
             </div>
           </main>
