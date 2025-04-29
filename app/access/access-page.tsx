@@ -24,6 +24,7 @@ const accessData = [
   { id: "00000", name: "Anderson", email: "mail@gmail.com", access: "Admin", status: "Ativo" },
   { id: "00000", name: "Anderson", email: "mail@gmail.com", access: "Admin", status: "Inativo" },
   { id: "00000", name: "Anderson", email: "mail@gmail.com", access: "Admin", status: "Ativo" },
+  { id: "00000", name: "Anderson", email: "mail@gmail.com", access: "Admin", status: "Ativo" },
   { id: "00000", name: "Anderson", email: "mail@gmail.com", access: "Admin", status: "Inativo" },
   { id: "00000", name: "Anderson", email: "mail@gmail.com", access: "Admin", status: "Ativo" },
   { id: "00000", name: "Anderson", email: "mail@gmail.com", access: "Admin", status: "Inativo" },
@@ -44,7 +45,7 @@ export default function AccessPage() {
     <PageTransition>
       <div className="flex flex-col h-screen">
         {/* Header */}
-        <header className="bg-black text-white py-3 px-6 flex justify-between items-center">
+        <header className="bg-black text-white py-3 px-6 flex justify-between items-center sticky top-0 z-50">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
             <div>
@@ -58,7 +59,7 @@ export default function AccessPage() {
               <div className="w-9 h-9 bg-gray-300 rounded-full overflow-hidden">{/* User avatar would go here */}</div>
               <div>
                 <p className="text-xs text-gray-400">Seja bem vindo!</p>
-                <p className="text-sm">Nome do usuário</p>
+                <p className="text-sm">Nome do Usuário</p>
               </div>
             </div>
             <ChevronDown size={16} />
@@ -163,7 +164,10 @@ export default function AccessPage() {
                   />
                 </div>
               </div>
-              <button className="w-[220px] h-[40px] bg-[#B8860B] text-white rounded-md uppercase font-medium text-sm tracking-wide">
+              <button
+                className="w-[220px] h-[40px] bg-[#B8860B] text-white rounded-md uppercase font-medium text-sm tracking-wide hover:bg-[#9e7609] transition-colors"
+                onClick={() => router.push("/access/new")}
+              >
                 NOVO COLABORADOR
               </button>
             </div>

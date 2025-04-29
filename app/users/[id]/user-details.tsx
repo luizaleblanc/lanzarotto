@@ -21,7 +21,7 @@ import {
 // Dados de exemplo para o usuário
 const userData = {
   id: "00000",
-  name: "Marina Silva",
+  name: "Anderson",
   email: "mail@gmail.com",
   phone: "(00) 00000-0000",
   uf: "BA",
@@ -146,7 +146,7 @@ export default function UserDetails({ userId }: { userId: string }) {
     <PageTransition>
       <div className="flex flex-col h-screen">
         {/* Header */}
-        <header className="bg-black text-white py-3 px-4 md:px-6 flex justify-between items-center">
+        <header className="bg-black text-white py-3 px-4 md:px-6 flex justify-between items-center sticky top-0 z-50">
           <div className="flex items-center gap-2 md:gap-3">
             <div className="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full"></div>
             <div>
@@ -162,7 +162,7 @@ export default function UserDetails({ userId }: { userId: string }) {
               </div>
               <div>
                 <p className="text-xs text-gray-400">Seja bem vindo!</p>
-                <p className="text-sm">Nome do usuário</p>
+                <p className="text-sm">Nome do Usuário</p>
               </div>
             </div>
             <ChevronDown size={16} className="hidden md:block" />
@@ -279,7 +279,7 @@ export default function UserDetails({ userId }: { userId: string }) {
                   <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 w-full">
                     <div>
                       <h3 className="text-sm font-medium text-gray-500">Nome</h3>
-                      <p>Marina Silva</p>
+                      <p>Anderson</p>
                     </div>
                     <div>
                       <h3 className="text-sm font-medium text-gray-500">Email</h3>

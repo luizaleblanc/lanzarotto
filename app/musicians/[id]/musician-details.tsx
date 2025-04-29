@@ -23,7 +23,7 @@ import {
 // Dados de exemplo para o músico
 const musicianData = {
   id: "00000",
-  name: "Marina Silva",
+  name: "Anderson",
   email: "mail@email.com",
   phone: "(00) 00000-0000",
   uf: "BA",
@@ -36,7 +36,7 @@ const requestsData = [
     id: "00001",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -46,7 +46,7 @@ const requestsData = [
     id: "00002",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -56,7 +56,7 @@ const requestsData = [
     id: "00003",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -66,7 +66,7 @@ const requestsData = [
     id: "00004",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -76,7 +76,7 @@ const requestsData = [
     id: "00005",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -86,7 +86,7 @@ const requestsData = [
     id: "00006",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -96,7 +96,7 @@ const requestsData = [
     id: "00007",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -106,7 +106,7 @@ const requestsData = [
     id: "00008",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -116,7 +116,7 @@ const requestsData = [
     id: "00009",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -126,7 +126,7 @@ const requestsData = [
     id: "00010",
     date: "00/00/00",
     type: "Sertanejo",
-    user: "Nome do usuário",
+    user: "Anderson",
     uf: "BA",
     city: "Salvador",
     value: "R$ 00,00",
@@ -141,21 +141,21 @@ const reviewsData = [
     rating: 4,
     date: "1 Semana atrás",
     text: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
-    user: "Usuário",
+    user: "Anderson",
   },
   {
     id: 2,
     rating: 5,
     date: "1 Semana atrás",
     text: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
-    user: "Usuário",
+    user: "Anderson",
   },
   {
     id: 3,
     rating: 4,
     date: "1 Semana atrás",
     text: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
-    user: "Usuário",
+    user: "Anderson",
   },
 ]
 
@@ -196,7 +196,7 @@ export default function MusicianDetails({ musicianId }: { musicianId: string }) 
     <PageTransition>
       <div className="flex flex-col h-screen">
         {/* Header */}
-        <header className="bg-black text-white py-3 px-4 md:px-6 flex justify-between items-center">
+        <header className="bg-black text-white py-3 px-4 md:px-6 flex justify-between items-center sticky top-0 z-50">
           <div className="flex items-center gap-2 md:gap-3">
             <div className="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full"></div>
             <div>
@@ -212,7 +212,7 @@ export default function MusicianDetails({ musicianId }: { musicianId: string }) 
               </div>
               <div>
                 <p className="text-xs text-gray-400">Seja bem vindo!</p>
-                <p className="text-sm">Nome do usuário</p>
+                <p className="text-sm">Nome do Usuário</p>
               </div>
             </div>
             <ChevronDown size={16} className="hidden md:block" />

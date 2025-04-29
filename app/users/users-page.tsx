@@ -19,13 +19,15 @@ import {
   ChevronRight,
 } from "lucide-react"
 
+// Modifique o array usersData para que todos os nomes sejam "Anderson"
+
 // Dados de exemplo para a tabela de usuários
 const usersData = [
   { id: "00001", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00002", name: "Marina Silva", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  { id: "00002", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
   {
     id: "00003",
-    name: "Carlos Oliveira",
+    name: "Anderson",
     email: "mail@gmail.com",
     phone: "(00) 00000-0000",
     uf: "BA",
@@ -33,7 +35,7 @@ const usersData = [
   },
   {
     id: "00004",
-    name: "Juliana Santos",
+    name: "Anderson",
     email: "mail@gmail.com",
     phone: "(00) 00000-0000",
     uf: "BA",
@@ -41,7 +43,7 @@ const usersData = [
   },
   {
     id: "00005",
-    name: "Roberto Almeida",
+    name: "Anderson",
     email: "mail@gmail.com",
     phone: "(00) 00000-0000",
     uf: "BA",
@@ -49,23 +51,23 @@ const usersData = [
   },
   {
     id: "00006",
-    name: "Fernanda Costa",
+    name: "Anderson",
     email: "mail@gmail.com",
     phone: "(00) 00000-0000",
     uf: "BA",
     city: "Salvador",
   },
-  { id: "00007", name: "Paulo Mendes", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  { id: "00007", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
   {
     id: "00008",
-    name: "Luciana Ferreira",
+    name: "Anderson",
     email: "mail@gmail.com",
     phone: "(00) 00000-0000",
     uf: "BA",
     city: "Salvador",
   },
-  { id: "00009", name: "Ricardo Souza", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
-  { id: "00010", name: "Amanda Lima", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  { id: "00009", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
+  { id: "00010", name: "Anderson", email: "mail@gmail.com", phone: "(00) 00000-0000", uf: "BA", city: "Salvador" },
 ]
 
 export default function UsersPage() {
@@ -85,7 +87,7 @@ export default function UsersPage() {
     <PageTransition>
       <div className="flex flex-col h-screen">
         {/* Header */}
-        <header className="bg-black text-white py-3 px-4 md:px-6 flex justify-between items-center">
+        <header className="bg-black text-white py-3 px-4 md:px-6 flex justify-between items-center sticky top-0 z-50">
           <div className="flex items-center gap-2 md:gap-3">
             <div className="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full"></div>
             <div>
@@ -101,7 +103,7 @@ export default function UsersPage() {
               </div>
               <div>
                 <p className="text-xs text-gray-400">Seja bem vindo!</p>
-                <p className="text-sm">Nome do usuário</p>
+                <p className="text-sm">Nome do Usuário</p>
               </div>
             </div>
             <ChevronDown size={16} className="hidden md:block" />
