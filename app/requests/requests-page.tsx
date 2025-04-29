@@ -127,6 +127,10 @@ export default function RequestsPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const router = useRouter()
 
+  const handleRequestClick = (requestId: string) => {
+    router.push(`/requests/${requestId}`)
+  }
+
   const handleNavigation = (path: string) => {
     router.push(path)
     setMobileMenuOpen(false)
@@ -338,7 +342,11 @@ export default function RequestsPage() {
                       </thead>
                       <tbody>
                         {requestsData.map((request, index) => (
-                          <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                          <tr
+                            key={index}
+                            className="border-b border-gray-200 hover:bg-gray-50 cursor-pointer"
+                            onClick={() => handleRequestClick(request.id)}
+                          >
                             <td className="py-3 px-4 text-sm">{request.id}</td>
                             <td className="py-3 px-4 text-sm">{request.date}</td>
                             <td className="py-3 px-4 text-sm">{request.type}</td>
@@ -357,7 +365,7 @@ export default function RequestsPage() {
                                 {request.status}
                               </span>
                             </td>
-                            <td className="py-3 px-4 text-center">
+                            <td className="py-3 px-4 text-center" onClick={(e) => e.stopPropagation()}>
                               <button className="text-gray-500 hover:text-gray-700">
                                 <MoreVertical size={18} />
                               </button>
