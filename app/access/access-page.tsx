@@ -154,7 +154,7 @@ export default function AccessPage() {
 
           {/* Search and Filter */}
           <div className="flex flex-col md:flex-row gap-4 mb-6 items-center">
-            <div className="relative flex-1">
+            <div className="relative w-full md:w-[250px]">
               <input
                 type="text"
                 placeholder="Buscar"
