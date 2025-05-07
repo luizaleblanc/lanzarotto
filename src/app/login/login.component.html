@@ -1,0 +1,108 @@
+<div class="flex min-h-screen w-full flex-col lg:flex-row">
+    <div class="flex flex-1 flex-col items-center justify-center px-4 py-8 md:px-8 lg:px-16">
+        <div class="w-full max-w-[400px]">
+            <div class="flex justify-center mb-6">
+                <div class="h-20 w-20 md:h-24 md:w-24 rounded-full bg-gray-200 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-gray-400">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+            </div>
+
+            <h1 class="text-xl md:text-2xl font-semibold text-center mb-1">Seja bem vindo(a)!</h1>
+            <p class="text-xs md:text-sm text-gray-600 text-center mb-6 md:mb-8 px-2 md:px-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+            </p>
+
+            <div class="space-y-4">
+                <div class="space-y-1">
+                    <label class="text-sm text-[#B8860B]">E-mail</label>
+                    <div class="relative">
+                        <div class="absolute left-3 top-1/2 -translate-y-1/2 text-[#B8860B]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <input type="email" placeholder="mail@email.com"
+                            class="w-full rounded bg-gray-50 border border-gray-200 py-2.5 pl-10 pr-3 text-sm outline-none"
+                            [(ngModel)]="email" />
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-sm text-[#B8860B]">Senha</label>
+                    <div class="relative">
+                        <div class="absolute left-3 top-1/2 -translate-y-1/2 text-[#B8860B]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <input [type]="hidePassword ? 'password' : 'text'" placeholder="••••••••"
+                            class="w-full rounded bg-gray-50 border border-gray-200 py-2.5 pl-10 pr-10 text-sm outline-none"
+                            [(ngModel)]="password" />
+                        <button type="button" (click)="hidePassword = !hidePassword"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+                            <svg *ngIf="hidePassword" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <svg *ngIf="!hidePassword" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
+                                <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68">
+                                </path>
+                                <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
+                                <line x1="2" x2="22" y1="2" y2="22"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-sm">
+                    Esqueceu a senha?
+                    <a routerLink="/forgot-password" class="font-medium">
+                        Clique aqui!
+                    </a>
+                </div>
+
+                <button type="button" (click)="handleLogin()"
+                    class="w-full bg-[#B8860B] text-white py-2.5 rounded font-medium hover:bg-[#a67719] transition-colors">
+                    ENTRAR
+                </button>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between text-xs mt-auto pt-8 md:pt-16 gap-4 md:gap-0">
+                <a href="#" class="text-gray-700 text-center md:text-left">
+                    TERMOS DE USO
+                </a>
+                <a href="#" class="text-gray-700 text-center">
+                    POLÍTICAS DE PRIVACIDADE
+                </a>
+                <a href="#" class="text-gray-700 text-center md:text-right">
+                    CONTATO
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="hidden lg:block relative" style="width: 720px; max-height: 100vh;">
+        <div class="w-full h-full bg-white flex items-center justify-center" style="aspect-ratio: 720/1023;">
+            <div class="relative w-2/5 h-2/5 flex items-center justify-center">
+                <img src="assets/images/guitar-logo.png" alt="Logotipo de guitarra" width="200" height="200"
+                    class="object-contain" />
+            </div>
+        </div>
+    </div>
+</div>

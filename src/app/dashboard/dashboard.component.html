@@ -1,0 +1,129 @@
+<div class="p-6">
+    <div class="flex justify-end mb-4">
+        <button class="flex items-center gap-2 text-sm border border-gray-200 px-4 py-1.5 rounded">
+            1 de Mar de 2023 a 9 de Mar de 2023
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-3 gap-6 mb-6">
+        <!-- Users Card -->
+        <div class="bg-white rounded-lg shadow p-4 flex justify-between items-center">
+            <div>
+                <h2 class="text-2xl font-bold">83.706</h2>
+                <p class="text-sm text-gray-500">Usuários</p>
+            </div>
+            <div class="flex flex-col items-end">
+                <span class="text-emerald-500 flex items-center text-sm gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m13 7 5 5-5 5" />
+                        <path d="M6 7 V 17" />
+                    </svg>
+                    50,2%
+                </span>
+                <div class="w-12 h-12 bg-[#B8860B] rounded-full flex items-center justify-center mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Musicians Card -->
+        <div class="bg-white rounded-lg shadow p-4 flex justify-between items-center">
+            <div>
+                <h2 class="text-2xl font-bold">022</h2>
+                <p class="text-sm text-gray-500">Músicos</p>
+            </div>
+            <div class="flex flex-col items-end">
+                <span class="text-red-500 flex items-center text-sm gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m13 17 5-5-5-5" />
+                        <path d="M6 17 V 7" />
+                    </svg>
+                    50,2%
+                </span>
+                <div class="w-12 h-12 bg-black rounded-full flex items-center justify-center mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18V5l12-2v13"></path>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <circle cx="18" cy="16" r="3"></circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Card -->
+        <div class="bg-white rounded-lg shadow p-4 flex justify-between items-center">
+            <div>
+                <h2 class="text-2xl font-bold">R$ 300000,00</h2>
+                <p class="text-sm text-gray-500">Total em caixa</p>
+            </div>
+            <div class="flex flex-col items-end">
+                <span class="text-red-500 flex items-center text-sm gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m13 17 5-5-5-5" />
+                        <path d="M6 17 V 7" />
+                    </svg>
+                    50,2%
+                </span>
+                <div class="w-12 h-12 bg-[#B8860B] rounded-full flex items-center justify-center mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Chart -->
+    <div class="bg-white rounded-lg shadow p-4 mb-6">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-medium">Usuários x Financeiro</h3>
+        </div>
+        <div class="p-4">
+            <img src="assets/chart.png" alt="Gráfico de barras">
+        </div>
+    </div>
+
+    <!-- Recent Requests -->
+    <div class="bg-white rounded-lg shadow p-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-medium">Últimas solicitações</h3>
+            <button class="text-[#B8860B] text-sm">Mostrar todas</button>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-gray-100 rounded-md flex items-center justify-center flex-shrink-0">
+                    <span class="text-xs text-gray-600">#</span>
+                </div>
+                <div>
+                    <p class="text-sm">#01201200</p>
+                    <p class="text-xs text-gray-500">Nome do músico</p>
+                    <p class="text-xs text-gray-500">00/00/00</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-gray-100 rounded-md flex items-center justify-center flex-shrink-0">
+                    <span class="text-xs text-gray-600">#</span>
+                </div>
+                <div>
+                    <p class="text-sm">#01201200</p>
+                    <p class="text-xs text-gray-500">Nome do músico</p>
+                    <p class="text-xs text-gray-500">00/00/00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
